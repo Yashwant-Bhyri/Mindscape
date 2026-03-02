@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+build/
+dist/
+*.spec
+.DS_Store
+*.wav
+mesop_*.log
+/tmp/mindscape_uploads/

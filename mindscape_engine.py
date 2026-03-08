@@ -10,13 +10,25 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from sentence_transformers import CrossEncoder
 from clinical_data import DSM_CRITERIA
+from retrieval.hybrid_retriever import HybridRetriever
 
 load_dotenv()
 
+# Fix for broken TensorFlow on system
+os.environ["USE_TF"] = "0"
 
 # Initialize model variables
 model = None
 nli_model = None
+retriever = None
+
+def load_retriever():
+    global retriever
+    if retriever is None:
+        print("Loading Hybrid Retriever...")
+        retriever = HybridRetriever()
+        retriever.initialize()
+    return retriever
 
 def load_nli_model():
     global nli_model
@@ -216,6 +228,34 @@ def get_diagnosis(transcript, selected_criteria_keys=None):
             "hypothesis": {"name": "Error: No API Key", "evidence": []},
             "safety_gate": "FAIL"
         }
+
+    # ---------------------------------------------------------
+    # HYBRID RETRIEVAL INTEGRATION
+    # ---------------------------------------------------------
+    try:
+        bsv = result.get('bsv', {})
+        r_engine = load_retriever()
+        retrieval_package = r_engine.retrieve_evidence(transcript, bsv)
+        
+        # Format evidence for the UI and for potential second pass logic
+        evidence_list = []
+        for ev in retrieval_package['evidence']:
+            evidence_list.append(f"[{ev['source']}] {ev['title']}: {ev['text']}")
+        
+        # Inject retrieved evidence into the result
+        result['retrieved_evidence'] = evidence_list
+        
+        # SECOND PASS: Grounded Reasoning (Simplified for now: append to evidence)
+        # Note: In a full implementation, we'd re-call the LLM here with the evidence.
+        # But per current MVP requirements, we attach the evidence for clinician review.
+        if evidence_list:
+            if 'evidence' not in result['hypothesis']:
+                 result['hypothesis']['evidence'] = []
+            # Optionally filter original evidence or append grounded ones
+            # result['hypothesis']['evidence'].extend(evidence_list[:2]) # Top 2 grounded
+            
+    except Exception as e:
+        print(f"Retrieval Integration Error: {e}")
 
     # ---------------------------------------------------------
     # STRICT NLI SAFETY GATE

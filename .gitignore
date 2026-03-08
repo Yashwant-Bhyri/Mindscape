@@ -13,3 +13,5 @@ dist/
 *.wav
 mesop_*.log
 /tmp/mindscape_uploads/
+retrieval/*.faiss
+retrieval/chunk_metadata.json

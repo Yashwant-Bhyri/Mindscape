@@ -350,10 +350,18 @@ def toggle_recording(e: me.ClickEvent):
              state.safety_gate = result.get('safety_gate', 'FAIL')
              
              evidence = result['hypothesis'].get('evidence', [])
+             grounded_evidence = result.get('retrieved_evidence', [])
+             
+             final_evidence_text = ""
              if isinstance(evidence, list):
-                state.hypothesis_evidence = "\n- ".join(evidence)
+                final_evidence_text += "\n- ".join(evidence)
              else:
-                state.hypothesis_evidence = str(evidence)
+                final_evidence_text += str(evidence)
+                
+             if grounded_evidence:
+                 final_evidence_text += "\n\n**Grounded Medical Evidence:**\n- " + "\n- ".join(grounded_evidence)
+                 
+             state.hypothesis_evidence = final_evidence_text
                 
              state.status_message = "Analysis Complete"
              
@@ -402,10 +410,18 @@ def handle_upload(event: me.UploadEvent):
          state.safety_gate = result.get('safety_gate', 'FAIL')
          
          evidence = result['hypothesis'].get('evidence', [])
+         grounded_evidence = result.get('retrieved_evidence', [])
+         
+         final_evidence_text = ""
          if isinstance(evidence, list):
-            state.hypothesis_evidence = "\n- ".join(evidence)
+            final_evidence_text += "\n- ".join(evidence)
          else:
-            state.hypothesis_evidence = str(evidence)
+            final_evidence_text += str(evidence)
+            
+         if grounded_evidence:
+             final_evidence_text += "\n\n**Grounded Medical Evidence:**\n- " + "\n- ".join(grounded_evidence)
+             
+         state.hypothesis_evidence = final_evidence_text
             
          state.status_message = "Analysis Complete"
          

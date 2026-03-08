@@ -335,7 +335,7 @@ def toggle_recording(e: me.ClickEvent):
              yield 
              
              # Diagnose
-             result = mindscape_engine.get_diagnosis(transcript)
+             result = mindscape_engine.get_diagnosis(transcript, filepath)
              
              # Robust Extraction
              bsv = result.get('bsv', {})
@@ -396,7 +396,7 @@ def handle_upload(event: me.UploadEvent):
          yield 
          
          # Diagnose
-         result = mindscape_engine.get_diagnosis(transcript)
+         result = mindscape_engine.get_diagnosis(transcript, filepath)
          
          # Robust Extraction
          bsv = result.get('bsv', {})

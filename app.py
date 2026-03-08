@@ -22,6 +22,7 @@ class State:
     hypothesis_confidence: str = ""
     hypothesis_reasoning: str = "" 
     hypothesis_evidence: str = ""
+    retrieved_evidence: list[str] = field(default_factory=list)
     follow_up_questions: list[str] = field(default_factory=list)
     safety_gate: str = "PENDING"
 
@@ -261,6 +262,14 @@ def render_hypothesis_card(state):
                         )):
                              me.text(q, style=me.Style(color="#e0e0e0", font_size=14, font_style="italic"))
 
+        # Grounded Medical Evidence (Corpus-derived)
+        if state.retrieved_evidence:
+             with me.box(style=me.Style(margin=me.Margin(top=24), padding=me.Padding.all(16), background="rgba(255, 255, 255, 0.03)", border_radius=8, border=me.Border(top=me.BorderSide(width=1, color=color_border)))):
+                me.text("Grounded Medical Evidence (DSM-5/NICE)", style=me.Style(color=color_accent_green, font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px", margin=me.Margin(bottom=12)))
+                with me.box(style=me.Style(display="flex", flex_direction="column", gap=12)):
+                    for ev in state.retrieved_evidence:
+                        me.text(ev, style=me.Style(color="#cfd8dc", font_size=13, line_height="1.5"))
+
 def bsv_meter(label, value, min_val, max_val, colors):
     normalized = (value - min_val) / (max_val - min_val)
     normalized = max(0.0, min(1.0, normalized))
@@ -346,6 +355,7 @@ def toggle_recording(e: me.ClickEvent):
              state.hypothesis_name = result['hypothesis'].get('name', 'Unknown')
              state.hypothesis_confidence = result['hypothesis'].get('confidence', '')
              state.hypothesis_reasoning = result.get('reasoning', '')
+             state.retrieved_evidence = result.get('retrieved_evidence', [])
              state.follow_up_questions = result.get('follow_up', [])
              state.safety_gate = result.get('safety_gate', 'FAIL')
              
@@ -406,6 +416,7 @@ def handle_upload(event: me.UploadEvent):
          state.hypothesis_name = result['hypothesis'].get('name', 'Unknown')
          state.hypothesis_confidence = result['hypothesis'].get('confidence', '')
          state.hypothesis_reasoning = result.get('reasoning', '')
+         state.retrieved_evidence = result.get('retrieved_evidence', [])
          state.follow_up_questions = result.get('follow_up', [])
          state.safety_gate = result.get('safety_gate', 'FAIL')
          

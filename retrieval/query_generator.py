@@ -45,7 +45,8 @@ class QueryGenerator:
                 response = client.chat.completions.create(
                     model=model_id,
                     messages=[{"role": "user", "content": prompt}],
-                    response_format={"type": "json_object"}
+                    response_format={"type": "json_object"},
+                    max_tokens=256
                 )
                 content = response.choices[0].message.content
                 # Sometimes LLMs wrap the list in a key

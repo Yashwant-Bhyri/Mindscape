@@ -10,7 +10,7 @@ from .fusion import rrf_fusion
 class HybridRetriever:
     def __init__(self, data_dir="data/corpus"):
         self.data_dir = data_dir
-        self.dense = DenseRetriever()
+        # self.dense = DenseRetriever() # DISABLED FOR MVP OOM
         self.sparse = SparseRetriever()
         self.query_gen = QueryGenerator()
         self.is_initialized = False
@@ -19,7 +19,7 @@ class HybridRetriever:
         """
         Load corpus, chunk, and build indices.
         """
-        if not force and self.dense.load_index() and self.sparse.load_index():
+        if not force and self.sparse.load_index():
             self.is_initialized = True
             return
 
@@ -30,7 +30,7 @@ class HybridRetriever:
             return
             
         chunks = process_documents(docs)
-        self.dense.build_index(chunks)
+        # self.dense.build_index(chunks) # DISABLED FOR MVP OOM
         self.sparse.build_index(chunks)
         self.is_initialized = True
         print(f"Initialization complete. Indexed {len(chunks)} chunks.")
@@ -51,12 +51,12 @@ class HybridRetriever:
         # 2. Collect candidates
         all_query_results = []
         for q in queries:
-            dense_res = self.dense.search(q, top_k=10)
+            # dense_res = self.dense.search(q, top_k=10)
             sparse_res = self.sparse.search(q, top_k=10)
-            all_query_results.append(dense_res)
+            # all_query_results.append(dense_res)
             all_query_results.append(sparse_res)
             
-        # 3. Fuse
+        # 3. Fuse (Now just flat sorting since it's only BM25)
         fused_results = rrf_fusion(all_query_results)
         
         # 4. Filter and Format

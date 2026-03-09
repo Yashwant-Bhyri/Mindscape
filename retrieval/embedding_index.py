@@ -2,15 +2,28 @@ import os
 import faiss
 import numpy as np
 import json
+import torch
 from sentence_transformers import SentenceTransformer
+
+# PyTorch tries to use all CPU cores for computation by default. 
+# Inside a web server thread (like Mesop), this causes an immediate deadlock during model.encode()
+torch.set_num_threads(1)
 
 class DenseRetriever:
     def __init__(self, model_name='sentence-transformers/all-MiniLM-L6-v2', index_path='retrieval/vector_index.faiss', metadata_path='retrieval/chunk_metadata.json'):
-        self.model = SentenceTransformer(model_name)
+        self.model_name = model_name
+        self._model = None
         self.index_path = index_path
         self.metadata_path = metadata_path
         self.index = None
         self.chunks = []
+
+    @property
+    def model(self):
+        if self._model is None:
+            print(f"Loading SentenceTransformer: {self.model_name}")
+            self._model = SentenceTransformer(self.model_name)
+        return self._model
 
     def build_index(self, chunks):
         """

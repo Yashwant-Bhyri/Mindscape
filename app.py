@@ -1,12 +1,17 @@
 import mesop as me
 import mindscape_engine
 import os
+# Must apply these before any AI libraries load to prevent deadlocks in Mesop threads
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["USE_TF"] = "0"
+
 import re
 import time
 from dataclasses import field
 
 @me.stateclass
-class State:
+class ApplicationState:
     transcript: str = ""
     is_recording: bool = False
     is_processing: bool = False
@@ -24,6 +29,12 @@ class State:
     hypothesis_evidence: str = ""
     retrieved_evidence: list[str] = field(default_factory=list)
     follow_up_questions: list[str] = field(default_factory=list)
+    treatment_plan: str = ""
+    reference_cases: list[dict] = field(default_factory=list)
+    traumatic_markers: list[str] = field(default_factory=list)
+    emotion_trajectory: list[dict] = field(default_factory=list)
+    pipeline_active_node: int = 0
+    pipeline_logs: list[str] = field(default_factory=list)
     safety_gate: str = "PENDING"
 
 def on_load(e: me.LoadEvent):
@@ -31,7 +42,7 @@ def on_load(e: me.LoadEvent):
 
 @me.page(path="/", on_load=on_load)
 def home():
-    state = me.state(State)
+    state = me.state(ApplicationState)
     
     # ----------------------------------------------------
     # STYLES - Silicon Valley Dark Mode
@@ -179,6 +190,108 @@ def home():
                     else:
                         me.text("No speech detected yet.", style=me.Style(color="#444", font_style="italic"))
 
+                # Historical Case Studies (Relocated)
+                if state.reference_cases:
+                     with me.box(style=me.Style(
+                         margin=me.Margin(top=24), 
+                         padding=me.Padding.all(20), 
+                         background="rgba(255, 145, 0, 0.05)", 
+                         border_radius=12, 
+                         border=me.Border(
+                             top=me.BorderSide(width=1, color="rgba(255, 145, 0, 0.3)"),
+                             left=me.BorderSide(width=4, color="#ff9100")
+                         )
+                     )):
+                        with me.box(style=me.Style(display="flex", align_items="center", gap=8, margin=me.Margin(bottom=16))):
+                            me.icon("history_edu", style=me.Style(color="#ff9100", font_size=20))
+                            me.text("Historical Case Matches", style=me.Style(color="#ff9100", font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px"))
+                        
+                        with me.box(style=me.Style(display="flex", flex_direction="column", gap=16)):
+                            for case in state.reference_cases:
+                                with me.box(style=me.Style(
+                                    background="rgba(0, 0, 0, 0.4)", 
+                                    padding=me.Padding.all(16), 
+                                    border_radius=8, 
+                                    border=me.Border.all(me.BorderSide(width=1, color="rgba(255, 255, 255, 0.05)"))
+                                )):
+                                    me.text(case.get("title", "Historical Case"), style=me.Style(color="#ffffff", font_weight="bold", font_size=16, margin=me.Margin(bottom=8)))
+                                    me.markdown(f"**Relevance:** {case.get('relevance', '')}", style=me.Style(color="#cfd8dc", font_size=14, line_height="1.6", margin=me.Margin(bottom=8)))
+                                    me.markdown(f"**Historical Therapeutic Pathway:** {case.get('historical_treatment', '')}", style=me.Style(color="#ff9100", font_size=14, line_height="1.6", font_style="italic"))
+
+                # Grounded Medical Evidence (Corpus-derived - Relocated)
+                if state.retrieved_evidence:
+                     with me.box(style=me.Style(
+                         margin=me.Margin(top=24), 
+                         padding=me.Padding.all(20), 
+                         background="rgba(41, 121, 255, 0.05)", 
+                         border_radius=12, 
+                         border=me.Border(
+                             top=me.BorderSide(width=1, color="rgba(41, 121, 255, 0.3)"),
+                             left=me.BorderSide(width=4, color="rgba(41, 121, 255, 0.8)")
+                         )
+                     )):
+                        with me.box(style=me.Style(display="flex", align_items="center", gap=8, margin=me.Margin(bottom=16))):
+                            me.icon("menu_book", style=me.Style(color=color_accent_blue, font_size=20))
+                            me.text("Retrieved Clinical Base", style=me.Style(color=color_accent_blue, font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px"))
+                        
+                        with me.box(style=me.Style(display="flex", flex_direction="column", gap=16, max_height=250, overflow_y="auto", padding=me.Padding(right=8))):
+                            for idx, ev in enumerate(state.retrieved_evidence):
+                                with me.box(style=me.Style(
+                                    background="rgba(0, 0, 0, 0.3)",
+                                    padding=me.Padding.all(12),
+                                    border_radius=8,
+                                    border=me.Border.all(me.BorderSide(width=1, color="rgba(255, 255, 255, 0.05)"))
+                                )):
+                                    me.markdown(ev, style=me.Style(color="#cfd8dc", font_size=13, line_height="1.6"))
+
+                # Follow-up Questions (Suggested Inquiry) - Relocated
+                if state.follow_up_questions:
+                     with me.box(style=me.Style(
+                         margin=me.Margin(top=24), 
+                         padding=me.Padding.all(20), 
+                         background="rgba(41, 121, 255, 0.05)", 
+                         border_radius=12, 
+                         border=me.Border(
+                             top=me.BorderSide(width=1, color="rgba(41, 121, 255, 0.3)"),
+                             left=me.BorderSide(width=4, color="#2979ff")
+                         )
+                     )):
+                        with me.box(style=me.Style(display="flex", align_items="center", gap=8, margin=me.Margin(bottom=16))):
+                            me.icon("question_answer", style=me.Style(color="#2979ff", font_size=20))
+                            me.text("Suggested Inquiry", style=me.Style(color="#2979ff", font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px"))
+                        with me.box(style=me.Style(display="flex", flex_direction="column", gap=8)):
+                            for q in state.follow_up_questions:
+                                with me.box(style=me.Style(
+                                    background="rgba(41, 121, 255, 0.1)",
+                                    padding=me.Padding.all(12),
+                                    border_radius=8,
+                                    border=me.Border(left=me.BorderSide(width=2, color="#2979ff"))
+                                )):
+                                     me.text(q, style=me.Style(color="#e0e0e0", font_size=14, font_style="italic"))
+
+                # Treatment Plan - Relocated
+                if state.treatment_plan:
+                     with me.box(style=me.Style(
+                         margin=me.Margin(top=24), 
+                         padding=me.Padding.all(20), 
+                         background="rgba(0, 230, 118, 0.05)", 
+                         border_radius=12, 
+                         border=me.Border(
+                             top=me.BorderSide(width=1, color="rgba(0, 230, 118, 0.3)"),
+                             left=me.BorderSide(width=4, color="#00e676")
+                         )
+                     )):
+                        with me.box(style=me.Style(display="flex", align_items="center", gap=8, margin=me.Margin(bottom=16))):
+                            me.icon("healing", style=me.Style(color="#00e676", font_size=20))
+                            me.text("First-Line Treatment Pathway", style=me.Style(color="#00e676", font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px"))
+                        me.markdown(state.treatment_plan, style=me.Style(
+                            color="#ffffff", font_size=15, line_height="1.6", 
+                            background="rgba(0, 230, 118, 0.1)", 
+                            padding=me.Padding.all(16), 
+                            border_radius=8,
+                            border=me.Border(left=me.BorderSide(width=4, color="#00e676"))
+                        ))
+
             # RIGHT COLUMN: INTELLIGENCE DASHBOARD
             with me.box(style=me.Style(display="flex", flex_direction="column", gap=24)):
                 
@@ -190,8 +303,67 @@ def home():
                     bsv_meter("Arousal", state.bsv_arousal, 0, 1, ["#2979ff", "#ff9100"])  # Blue to Orange
                     bsv_meter("Dominance", state.bsv_dominance, 0, 1, ["#651fff", "#00b0ff"]) # Purple to Cyan
 
+                # Diagnostic Pipeline Visualization
+                render_pipeline_graph(state)
+
                 # Diagnostic Hypothesis
                 render_hypothesis_card(state)
+
+def render_pipeline_graph(state):
+    color_card = "rgba(25, 25, 25, 0.6)"
+    color_border = "rgba(255, 255, 255, 0.1)"
+    
+    with me.box(style=me.Style(
+        background=color_card,
+        border=me.Border.all(me.BorderSide(width=1, color=color_border)),
+        border_radius=12,
+        padding=me.Padding.all(24),
+    )):
+        me.text("System Execution Pipeline", style=me.Style(color="#ffffff", font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px", margin=me.Margin(bottom=16)))
+        
+        nodes = [
+            (1, "Acoustic Affect Extraction"),
+            (2, "Multimodal Context Fusion"),
+            (3, "Hybrid Clinical Retrieval"),
+            (4, "LLM Synthesis & Safety"),
+            (5, "Analysis Complete")
+        ]
+        
+        with me.box(style=me.Style(display="flex", flex_direction="column", gap=12)):
+            for node_id, label in nodes:
+                is_active = state.pipeline_active_node == node_id
+                is_done = state.pipeline_active_node > node_id
+                
+                # Styling
+                dot_color = "#00e676" if is_done else ("#2979ff" if is_active else "#444")
+                text_color = "#ffffff" if is_done or is_active else "#666"
+                bg_color = "rgba(41, 121, 255, 0.1)" if is_active else "transparent"
+                
+                with me.box(style=me.Style(display="flex", align_items="center", gap=12, padding=me.Padding.all(8), background=bg_color, border_radius=8)):
+                    with me.box(style=me.Style(
+                        width=12, height=12, border_radius=6, background=dot_color,
+                        box_shadow="0 0 10px #2979ff" if is_active else "none"
+                    )):
+                        pass
+                    me.text(label, style=me.Style(color=text_color, font_size=14, font_weight="bold" if is_active else "normal"))
+                    
+        # Dynamic Inner Workings Log
+        if state.pipeline_logs:
+            with me.box(style=me.Style(
+                margin=me.Margin(top=24),
+                padding=me.Padding.all(12),
+                background="rgba(0, 0, 0, 0.5)",
+                border_radius=8,
+                border=me.Border.all(me.BorderSide(width=1, color="rgba(41, 121, 255, 0.2)")),
+                max_height=250,
+                overflow_y="auto",
+                display="flex",
+                flex_direction="column",
+                gap=8
+            )):
+                me.text("INTELLIGENCE TRACER", style=me.Style(color="#82b1ff", font_size=11, font_weight="bold", letter_spacing="1px", margin=me.Margin(bottom=4)))
+                for p_log in state.pipeline_logs:
+                    me.text(f"> {p_log}", style=me.Style(color="#b0bec5", font_family="monospace", font_size=12, line_height="1.4"))
 
 def render_hypothesis_card(state):
     color_bg = "#0a0a0a"
@@ -247,28 +419,8 @@ def render_hypothesis_card(state):
         with me.box(style=me.Style(margin=me.Margin(top=0))):
             me.text("Evidence", style=me.Style(color=color_text_primary, font_weight="bold", font_size=14, margin=me.Margin(bottom=12)))
             me.markdown(state.hypothesis_evidence, style=me.Style(color=color_text_secondary, font_size=15, line_height="1.6"))
-        
-        # Follow-up Questions (Suggested Inquiry)
-        if state.follow_up_questions:
-             with me.box(style=me.Style(margin=me.Margin(top=8))):
-                me.text("Suggested Inquiry", style=me.Style(color=color_accent_blue, font_weight="bold", font_size=14, margin=me.Margin(bottom=12)))
-                with me.box(style=me.Style(display="flex", flex_direction="column", gap=8)):
-                    for q in state.follow_up_questions:
-                        with me.box(style=me.Style(
-                            background="rgba(41, 121, 255, 0.1)",
-                            padding=me.Padding.all(12),
-                            border_radius=8,
-                            border=me.Border(left=me.BorderSide(width=2, color=color_accent_blue))
-                        )):
-                             me.text(q, style=me.Style(color="#e0e0e0", font_size=14, font_style="italic"))
 
-        # Grounded Medical Evidence (Corpus-derived)
-        if state.retrieved_evidence:
-             with me.box(style=me.Style(margin=me.Margin(top=24), padding=me.Padding.all(16), background="rgba(255, 255, 255, 0.03)", border_radius=8, border=me.Border(top=me.BorderSide(width=1, color=color_border)))):
-                me.text("Grounded Medical Evidence (DSM-5/NICE)", style=me.Style(color=color_accent_green, font_weight="bold", font_size=14, text_transform="uppercase", letter_spacing="1px", margin=me.Margin(bottom=12)))
-                with me.box(style=me.Style(display="flex", flex_direction="column", gap=12)):
-                    for ev in state.retrieved_evidence:
-                        me.text(ev, style=me.Style(color="#cfd8dc", font_size=13, line_height="1.5"))
+
 
 def bsv_meter(label, value, min_val, max_val, colors):
     normalized = (value - min_val) / (max_val - min_val)
@@ -318,12 +470,13 @@ def render_tags(text):
                 me.text(part, style=me.Style(font_size=16, line_height="1.6", color="#eee"))
 
 def toggle_recording(e: me.ClickEvent):
-    state = me.state(State)
+    state = me.state(ApplicationState)
     if not state.is_recording:
         state.is_recording = True
         state.status_message = "Listening..."
         state.hypothesis_name = "Analyzing..."
         state.transcript = ""
+        # state.pipeline_logs = [] # PERSIST LOGS FOR SESSION
         yield
         
         # Trigger recording
@@ -344,8 +497,17 @@ def toggle_recording(e: me.ClickEvent):
              yield 
              
              # Diagnose
-             result = mindscape_engine.get_diagnosis(transcript, filepath)
-             
+             result = {}
+             for update in mindscape_engine.get_diagnosis(transcript, filepath):
+                 if "result" in update:
+                     result = update["result"]
+                 if "node" in update:
+                     state.pipeline_active_node = update["node"]
+                     state.status_message = update["status"]
+                 if "log" in update:
+                     state.pipeline_logs.append(update["log"])
+                 yield
+              
              # Robust Extraction
              bsv = result.get('bsv', {})
              state.bsv_valence = float(bsv.get('valence', 0.0))
@@ -357,6 +519,10 @@ def toggle_recording(e: me.ClickEvent):
              state.hypothesis_reasoning = result.get('reasoning', '')
              state.retrieved_evidence = result.get('retrieved_evidence', [])
              state.follow_up_questions = result.get('follow_up', [])
+             state.treatment_plan = result.get('treatment_plan', '')
+             state.reference_cases = result.get('reference_cases', [])
+             state.traumatic_markers = result.get('traumatic_markers', [])
+             state.emotion_trajectory = result.get('emotion_trajectory', [])
              state.safety_gate = result.get('safety_gate', 'FAIL')
              
              evidence = result['hypothesis'].get('evidence', [])
@@ -383,11 +549,12 @@ def toggle_recording(e: me.ClickEvent):
         yield
 
 def handle_upload(event: me.UploadEvent):
-    state = me.state(State)
+    state = me.state(ApplicationState)
     state.is_processing = True
     state.status_message = "Uploading & Analyzing..."
     state.hypothesis_name = "Analyzing File..."
     state.transcript = ""
+    # state.pipeline_logs = [] # PERSIST LOGS FOR SESSION
     yield
     
     # Save file
@@ -406,8 +573,17 @@ def handle_upload(event: me.UploadEvent):
          yield 
          
          # Diagnose
-         result = mindscape_engine.get_diagnosis(transcript, filepath)
-         
+         result = {}
+         for update in mindscape_engine.get_diagnosis(transcript, filepath):
+             if "result" in update:
+                 result = update["result"]
+             if "node" in update:
+                 state.pipeline_active_node = update["node"]
+                 state.status_message = update["status"]
+             if "log" in update:
+                 state.pipeline_logs.append(update["log"])
+             yield
+                 
          # Robust Extraction
          bsv = result.get('bsv', {})
          state.bsv_valence = float(bsv.get('valence', 0.0))
@@ -418,6 +594,8 @@ def handle_upload(event: me.UploadEvent):
          state.hypothesis_reasoning = result.get('reasoning', '')
          state.retrieved_evidence = result.get('retrieved_evidence', [])
          state.follow_up_questions = result.get('follow_up', [])
+         state.treatment_plan = result.get('treatment_plan', '')
+         state.reference_cases = result.get('reference_cases', [])
          state.safety_gate = result.get('safety_gate', 'FAIL')
          
          evidence = result['hypothesis'].get('evidence', [])

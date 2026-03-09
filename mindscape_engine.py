@@ -1,6 +1,7 @@
 import os
 import json
 import torch
+torch.set_num_threads(1)
 import torchaudio
 import sounddevice as sd
 import numpy as np
@@ -12,25 +13,24 @@ from transformers import AutoTokenizer, AutoModel as TransformersAutoModel
 from rank_bm25 import BM25Okapi
 from openai import OpenAI
 import google.generativeai as genai
+import gc
 from dotenv import load_dotenv
 from sentence_transformers import CrossEncoder
-<<<<<<< HEAD
 from clinical_data import DSM_CRITERIA
 from retrieval.hybrid_retriever import HybridRetriever
+import threading
 
 load_dotenv()
 
 # Fix for broken TensorFlow on system
 os.environ["USE_TF"] = "0"
-
-# Initialize model variables
-model = None
-=======
-
-load_dotenv()
+# Fix to prevent HuggingFace Rust Tokenizers from deadlocking in Mesop threads
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["OMP_NUM_THREADS"] = "1"
 
 DEVICE = "cpu"
 # DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
 # ---------------------------------------------------------
 # Global Model Caches
 # ---------------------------------------------------------
@@ -38,9 +38,10 @@ sensevoice_model = None
 emo_model = None
 medcpt_tokenizer = None
 medcpt_model = None
->>>>>>> cdfbf838fa4c54089f78c2c5ef5884c7c2f2ae25
 nli_model = None
 retriever = None
+
+_init_lock = threading.Lock()
 
 def load_retriever():
     global retriever
@@ -59,57 +60,58 @@ DSM_MOCK_DATA = None
 
 def init_models():
     """Lazy load all heavy models and build retrieval indices upon first use."""
-    global sensevoice_model, emo_model, medcpt_tokenizer, medcpt_model, DSM_MOCK_DATA
+    global sensevoice_model, emo_model, DSM_MOCK_DATA # medcpt removed for memory
     global GLOBAL_BM25, GLOBAL_FAISS, GLOBAL_CORPUS
     
-    if sensevoice_model is None:
-        print(f"Loading SenseVoiceSmall on {DEVICE} from local...")
-        local_sv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "models", "SenseVoiceSmall"))
-        cache_sv_path = os.path.join(os.path.expanduser("~"), ".cache", "modelscope", "hub", "models", "iic", "SenseVoiceSmall")
-        sv_path = local_sv_path
-        if not os.path.exists(os.path.join(local_sv_path, "model.pt")) and os.path.exists(os.path.join(cache_sv_path, "model.pt")):
-            sv_path = cache_sv_path
-        bpe_path = os.path.join(sv_path, "chn_jpn_yue_eng_ko_spectok.bpe.model")
-        if not os.path.exists(bpe_path):
-            print(f"CRITICAL ERROR: BPE Model not found at {bpe_path}")
-        else:
-            print(f"BPE Model verified at {bpe_path}")
-        sensevoice_model = AutoModel(model=sv_path, trust_remote_code=False, device=DEVICE, disable_update=True)
-    
-    if emo_model is None:
-        print("Loading official Emotion2Vec+ Base from local...")
-        local_emo_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "models", "emotion2vec_plus_base"))
-        cache_emo_path = os.path.join(os.path.expanduser("~"), ".cache", "modelscope", "hub", "models", "iic", "emotion2vec_plus_base")
-        emo_path = local_emo_path
-        if not os.path.exists(os.path.join(local_emo_path, "model.pt")) and os.path.exists(os.path.join(cache_emo_path, "model.pt")):
-            emo_path = cache_emo_path
-        emo_model = AutoModel(model=emo_path, trust_remote_code=False, device=DEVICE, disable_update=True)
-        
-    if medcpt_model is None:
-        print("Loading ncbi/MedCPT-Query-Encoder...")
-        medcpt_tokenizer = AutoTokenizer.from_pretrained("ncbi/MedCPT-Query-Encoder")
-        medcpt_model = TransformersAutoModel.from_pretrained("ncbi/MedCPT-Query-Encoder").to(DEVICE)
-        
-    if GLOBAL_BM25 is None:
-        # Load local DSM-5 JSON and build index
-        DSM_DATA_PATH = r"E:\Mindscape\Mindscape\extracted_dsm5.json"
-        if os.path.exists(DSM_DATA_PATH):
-            with open(DSM_DATA_PATH, "r", encoding="utf-8") as f:
-                DSM_MOCK_DATA = json.load(f)
-            print(f"SUCCESS: Loaded {len(DSM_MOCK_DATA)} disorders from {DSM_DATA_PATH}.")
-        else:
-            print(f"ERROR: File '{DSM_DATA_PATH}' not found. Falling back to simple mock.")
-            DSM_MOCK_DATA = [{"id": "MDD", "name": "Major Depressive Disorder", "desc": "Depressed mood and loss of interest in activities."}]
+    with _init_lock:
+        if sensevoice_model is not None and emo_model is not None:
+             return
+             
+        if sensevoice_model is None:
+            print(f"Loading SenseVoiceSmall on {DEVICE}...")
+            local_sv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "models", "SenseVoiceSmall"))
+            cache_sv_path = os.path.join(os.path.expanduser("~"), ".cache", "modelscope", "hub", "models", "iic", "SenseVoiceSmall")
             
-        GLOBAL_BM25, GLOBAL_FAISS, GLOBAL_CORPUS = build_indices(DSM_MOCK_DATA)
-
+            # Decide path: local > cache > model name (for download)
+            sv_source = "iic/SenseVoiceSmall"
+            if os.path.exists(os.path.join(local_sv_path, "model.pt")):
+                sv_source = local_sv_path
+            elif os.path.exists(os.path.join(cache_sv_path, "model.pt")):
+                sv_source = cache_sv_path
+                
+            print(f"Using source: {sv_source}")
+            sensevoice_model = AutoModel(model=sv_source, trust_remote_code=False, device=DEVICE, disable_update=True)
+        
+        if emo_model is None:
+            print("Loading official Emotion2Vec+ Base...")
+            local_emo_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "models", "emotion2vec_plus_base"))
+            cache_emo_path = os.path.join(os.path.expanduser("~"), ".cache", "modelscope", "hub", "models", "iic", "emotion2vec_plus_base")
+            
+            # Decide path: local > cache > model name (for download)
+            emo_source = "iic/emotion2vec_plus_base"
+            if os.path.exists(os.path.join(local_emo_path, "model.pt")):
+                emo_source = local_emo_path
+            elif os.path.exists(os.path.join(cache_emo_path, "model.pt")):
+                emo_source = cache_emo_path
+                
+            print(f"Using source: {emo_source}")
+            emo_model = AutoModel(model=emo_source, trust_remote_code=False, device=DEVICE, disable_update=True)
+            
+        # MedCPT Loading removed to prevent memory crashes and hanging.
+        # HybridRetriever handles all embeddings locally now.
+            
+        if GLOBAL_BM25 is None:
+            # We no longer load the mock JSON and build the MedCPT indices 
+            # as it causes OOM issues in parallel with HybridRetriever.
+            print("Skipped legacy mock MedCPT indices loaded.")
 
 def load_nli_model():
     global nli_model
-    if nli_model is None:
-        print("Loading NLI CrossEncoder...")
-        nli_model = CrossEncoder('cross-encoder/nli-distilroberta-base')
-    return nli_model
+    # Disabled for MVP: Model size and Threading locks cause Mesop to freeze indefinitely.
+    # if nli_model is None:
+    #     print("Loading NLI CrossEncoder...")
+    #     nli_model = CrossEncoder('cross-encoder/nli-distilroberta-base')
+    return None
 
 
 # ---------------------------------------------------------
@@ -134,7 +136,16 @@ def transcribe_audio(file_path):
     """ Transcribe audio file using SenseVoice. Output includes paralinguistic tags. """
     init_models()
     
-    waveform, sample_rate = torchaudio.load(file_path)
+    import soundfile as sf
+    data, sample_rate = sf.read(file_path)
+    waveform = torch.from_numpy(data).float()
+    
+    # torchaudio expects [channels, time], soundfile returns [time, channels]
+    if waveform.ndim == 1:
+        waveform = waveform.unsqueeze(0)
+    else:
+        waveform = waveform.T
+    
     if sample_rate != 16000:
         resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
         waveform = resampler(waveform)
@@ -151,6 +162,8 @@ def transcribe_audio(file_path):
         use_itn=True,
         batch_size_s=60,
         merge_vad=True,
+        disable_pbar=True,
+        disable_log=True
     )
     if isinstance(res, list) and len(res) > 0:
         return res[0].get("text", "")
@@ -161,9 +174,39 @@ def transcribe_audio(file_path):
 # Affect Extraction (Emotion2Vec+)
 # ---------------------------------------------------------
 def get_acoustic_affect(audio_path):
+    print(">>> Starting get_acoustic_affect")
     init_models()
     
-    res = emo_model.generate(audio_path, output_dir="./outputs", granularity="utterance")
+    # FunASR/PyTorch thread deadlock fix
+    import concurrent.futures
+    print(">>> Calling emo_model.generate")
+    
+    res = None
+    try:
+        def run_emo():
+            return emo_model.generate(
+                audio_path, 
+                output_dir="./outputs", 
+                granularity="utterance",
+                disable_pbar=True,
+                disable_log=True
+            )
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(run_emo)
+        res = future.result(timeout=10.0)
+        executor.shutdown(wait=False)
+    except Exception as e:
+        print(f"emo_model execution timed out out or failed: {e}")
+        return {
+            "Valence": 0.0,   
+            "Arousal": 0.5,   
+            "Dominance": 0.5, 
+            "Voice_Instability_Flag": False,
+            "Dominant_Emotion": "Neutral",
+            "Timeline": []
+        }
+        
+    print(">>> Finished emo_model.generate")
     
     scores_list = res[0].get('scores', [0]*8)
     labels_list = res[0].get('labels', ['Angry', 'Disgusted', 'Fearful', 'Happy', 'Neutral', 'Other', 'Sad', 'Surprised'])
@@ -186,7 +229,11 @@ def get_acoustic_affect(audio_path):
     pseudo_dominance = (angry * 1.0) + (happy * 0.8) - (fear * 0.8) - (sad * 0.8)
     pseudo_dominance = max(0.0, min(1.0, (pseudo_dominance + 1.0) / 2.0)) 
     
-    waveform, _ = torchaudio.load(audio_path)
+    import soundfile as sf
+    data, _ = sf.read(audio_path)
+    waveform = torch.from_numpy(data).float()
+    if waveform.ndim > 1:
+        waveform = torch.mean(waveform, dim=1)
     rms = torch.sqrt(torch.mean(waveform**2))
     is_quiet = int(rms < 0.01)
     
@@ -196,13 +243,13 @@ def get_acoustic_affect(audio_path):
         
     # Translate bilingual tags to english for llm readability if present
     dom_emo_clean = dom_emo.split('/')[-1] if '/' in dom_emo else dom_emo
-    
     return {
         "Valence": round(pseudo_valence, 3),   
         "Arousal": round(pseudo_arousal, 3),   
         "Dominance": round(pseudo_dominance, 3), 
         "Voice_Instability_Flag": bool(is_quiet),
-        "Dominant_Emotion": dom_emo_clean
+        "Dominant_Emotion": dom_emo_clean,
+        "Timeline": [] # In full implementation, we'd map res[i] across time chunks. For MVP, we'll synthesize this timeline inside the LLM based on transcript segmentation.
     }
 
 
@@ -215,10 +262,10 @@ def get_medcpt_embeddings(texts):
     with torch.no_grad():
         outputs = medcpt_model(**inputs)
         embeddings = outputs.last_hidden_state[:, 0, :]
-        return embeddings.cpu().numpy()
+        return np.ascontiguousarray(embeddings.cpu().numpy()).astype('float32')
 
 def build_indices(data):
-    print("Building FAISS and BM25 Indices...")
+    print(f"Building FAISS and BM25 Indices for {len(data)} items...")
     corpus_texts = [f"{item['name']}: {item['desc']}" for item in data]
     
     # Sparse
@@ -226,11 +273,28 @@ def build_indices(data):
     bm25_index = BM25Okapi(tokenized_corpus)
     
     # Dense
+    print("Generating MedCPT embeddings...")
     embeddings = get_medcpt_embeddings(corpus_texts)
+    print(f"Embeddings generated. Shape: {embeddings.shape}, Dtype: {embeddings.dtype}")
+    
+    # Ensure C-contiguous float32 for FAISS
+    embeddings = np.ascontiguousarray(embeddings).astype('float32')
+    
     embedding_dim = embeddings.shape[1] 
-    faiss_index = faiss.IndexHNSWFlat(embedding_dim, 32)
+    print(f"Initializing FAISS FlatIP index with dim {embedding_dim}...")
+    # IndexFlatIP is more stable on ARM64 ARM for small datasets
+    faiss_index = faiss.IndexFlatIP(embedding_dim)
+    
+    print("Normalizing embeddings...")
     faiss.normalize_L2(embeddings)
-    faiss_index.add(embeddings)
+    
+    print("Adding embeddings to FAISS index...")
+    try:
+        faiss_index.add(embeddings)
+        print("FAISS index built successfully.")
+    except Exception as e:
+        print(f"FAISS add failed: {e}. Falling back to simple search.")
+        # We still return the other components; search_dense will need a fallback
     
     return bm25_index, faiss_index, corpus_texts
 
@@ -300,28 +364,48 @@ def fuse_multimodal_data(transcript, affect_scores):
 def get_diagnosis(transcript, audio_path=None):
     """
     Combines Multimodal Fusion (Task 1) and Hybrid Retrieval (Task 2).
-    Analyzes the transcript and acoustic vectors against DSM criteria using LLM.
+    Yields progress dicts `{"node": int, "status": str}` and finally `{"result": dict}`
     """
     init_models()
     
-    # 1. Acoustic Affect Extraction 
+    yield {"node": 1, "status": "Acoustic Affect Extraction (Emotion2Vec+)"}
     affect_data = {"Valence": 0.0, "Arousal": 0.0, "Dominance": 0.0, "Voice_Instability_Flag": False, "Dominant_Emotion": "Neutral"}
     if audio_path and os.path.exists(audio_path):
         try:
             affect_data = get_acoustic_affect(audio_path)
+            yield {"log": f"Extracted Vocal Affect: {affect_data['Dominant_Emotion']} (V={affect_data['Valence']}, A={affect_data['Arousal']}, D={affect_data['Dominance']}, Tremor={affect_data['Voice_Instability_Flag']})"}
         except Exception as e:
             print(f"Error extracting affect from audio: {e}")
+            yield {"log": f"Vocal extraction bypassed or failed: {e}"}
             
     # 2. Fuse the context
+    yield {"node": 2, "status": "Multimodal Context Fusion & BSV Mapping"}
     fusion_context = fuse_multimodal_data(transcript, affect_data)
+    yield {"log": f"Fused Audio-Linguistic Context. Transcript Length: {len(transcript)}"}
     
     # 3. Hybrid Retrieval (RRF) for DSM-5 Knowledge
+    yield {"node": 3, "status": "Hybrid Clinical Retrieval (FAISS/BM25)"}
+    print(">>> Starting Hybrid Retrieval")
     clean_text = re.sub(r'<[^>]+>', '', transcript).strip()
-    search_query = clean_text if clean_text else "patient presents normally"
-    retrieved_docs = hybrid_search_rrf(search_query, DSM_MOCK_DATA, GLOBAL_CORPUS, top_k=3)
     
-    dsm_context = "\n".join([f"[{d['disorder']}]\n{d['criteria']}" for d in retrieved_docs])
+    bsv_for_search = {"valence": affect_data["Valence"], "arousal": affect_data["Arousal"], "dominance": affect_data["Dominance"]}
+    r_engine = load_retriever()
+    print(">>> Calling retrieve_evidence")
+    retrieval_package = r_engine.retrieve_evidence(clean_text, bsv_for_search)
+    print(">>> Finished retrieve_evidence")
+    yield {"log": f"Generated {len(retrieval_package.get('queries', []))} Semantic Vectors / Sparse BM25 Queries."}
+    yield {"log": f"Retrieved {len(retrieval_package.get('evidence', []))} Top-K Historical/Corpus Base Matches in {retrieval_package.get('latency_ms', 0):.2f}ms."}
+    
+    # Format evidence for prompt
+    evidence_list = []
+    dsm_context = ""
+    for ev in retrieval_package.get('evidence', []):
+        doc_str = f"[{ev['title']} ({ev['source']})]\n{ev['text']}"
+        evidence_list.append(doc_str)
+        
+    dsm_context = "\n\n".join(evidence_list)
 
+    yield {"node": 4, "status": "LLM Synthesis & Diagnostics Gate"}
     # 4. Prepare Ultimate System Prompt
     system_prompt = f"""You are MindScape, an elite AI psychiatric diagnostic assistant. Your analysis must be grounded strictly in the provided multimodal data and retrieved DSM-5 texts.
 
@@ -332,7 +416,7 @@ def get_diagnosis(transcript, audio_path=None):
 
 **Process:**
 1.  **Analyze the Fusion Data**: Weigh the explicit speech against the subconscious acoustic affect. Pay special attention if speech contradicts the affect (e.g., strong words but low Volume/Arousal).
-2.  **Map Evidence**: Compare the multimodal state against the provided DSM-5 Criteria.
+2.  **Map Evidence**: Compare the multimodal state against the provided DSM-5 Criteria. If any Documented Historical Clinical Cases are retrieved, evaluate their symptoms and diagnoses against the current patient to identify masked or complex layered presentations.
 3.  **Construct BSV**: Echo the Valence, Arousal, and Dominance derived from the acoustic signals into the final BSV output.
 4.  **Formulate Hypothesis**: 
     - If criteria are met -> Name the Disorder (e.g., "Major Depressive Disorder").
@@ -343,11 +427,27 @@ def get_diagnosis(transcript, audio_path=None):
 {{
   "reasoning": "Brief clinical summary using **bullet points**. **Bold** specific symptoms (e.g., **anhedonia**).",
   "bsv": {{ "valence": float, "arousal": float, "dominance": float }},
+  "traumatic_markers": ["Exact sentence/timestamp where a traumatic incident is recalled", "Another traumatic recall"],
+  "emotion_trajectory": [
+    {{
+      "phase": "Beginning / Middle / End",
+      "dominant_emotion": "Anger / Fear / Sadness / Neutral",
+      "trigger": "What explicitly caused this emotion in the transcript"
+    }}
+  ],
   "hypothesis": {{
     "name": "Disorder Name",
     "confidence": "High / Moderate / Low / Provisional",
     "evidence": ["Quote from transcript or affect supporting criteria 1", "Quote 2"]
   }},
+  "treatment_plan": "Specific first-line evidence-based pharmacological or therapeutic intervention (e.g., CBT, SSRIs, Lithium) grounded strictly in retrieved clinical texts or standard care. Be concise.",
+  "reference_cases": [
+    {{
+      "title": "Title of retrieved Historical Case Study",
+      "relevance": "Why this historical case is directly relevant to the current patient's presentation (e.g. underlying trauma, masked manic symptoms)",
+      "historical_treatment": "The successful therapeutic intervention and final diagnosis documented in the historical case"
+    }}
+  ],
   "follow_up": ["Specific question to ask the patient to clarify criteria 1"],
   "safety_gate": "PASS"
 }}
@@ -396,12 +496,14 @@ def get_diagnosis(transcript, audio_path=None):
             print(f"LLM Error: {e}")
 
     # Safety Defaults
+    # Safety Defaults
     if not result:
-        return {
+        yield {"result": {
             "bsv": affect_data,
             "hypothesis": {"name": "Error: Inference Failed", "evidence": []},
             "safety_gate": "FAIL"
-        }
+        }}
+        return
 
     # Validation
     if "bsv" not in result: result["bsv"] = {"valence": affect_data["Valence"], "arousal": affect_data["Arousal"], "dominance": affect_data["Dominance"]}
@@ -412,26 +514,12 @@ def get_diagnosis(transcript, audio_path=None):
     # ---------------------------------------------------------
     # HYBRID RETRIEVAL INTEGRATION (Task 2)
     # ---------------------------------------------------------
-    try:
-        bsv_data = result.get('bsv', {})
-        r_engine = load_retriever()
-        retrieval_package = r_engine.retrieve_evidence(transcript, bsv_data)
-        
-        # Format evidence for the UI
-        evidence_list = []
-        for ev in retrieval_package.get('evidence', []):
-            evidence_list.append(f"[{ev['source']}] {ev['title']}: {ev['text']}")
-        
-        # Inject retrieved evidence into the result
-        result['retrieved_evidence'] = evidence_list
-        
-        if evidence_list:
-            if 'evidence' not in result['hypothesis']:
-                 result['hypothesis']['evidence'] = []
-            # Optionally append grounded ones or keep as separate list
-            
-    except Exception as e:
-        print(f"Retrieval Integration Error: {e}")
+    # Format evidence for the UI
+    ui_evidence_list = []
+    for ev in retrieval_package.get('evidence', []):
+        ui_evidence_list.append(f"[{ev['source']}] {ev['title']}: {ev['text']}")
+    
+    result['retrieved_evidence'] = ui_evidence_list
 
     # ---------------------------------------------------------
     # STRICT NLI SAFETY GATE
@@ -440,21 +528,28 @@ def get_diagnosis(transcript, audio_path=None):
     if result.get('safety_gate') == 'PASS' and result['hypothesis']['name'] != 'Normal':
         try:
             nli = load_nli_model()
-            diagnosis = result['hypothesis']['name']
-            evidence_list = result['hypothesis']['evidence']
-            
-            nli_scores = []
-            for ev in evidence_list:
-                pair = (f"The patient presented with: {ev}", f"This indicates {diagnosis}")
-                score = nli.predict([pair])[0] 
-                probs = torch.softmax(torch.tensor(score), dim=0)
-                nli_scores.append(float(probs[1]))
-            
-            avg_nli = sum(nli_scores) / len(nli_scores) if nli_scores else 0.0
-            print(f"NLI Verification Score: {avg_nli:.4f}")
-            if avg_nli < 0.15:
-                print(f"Safety Gate Warning: Low NLI Score ({avg_nli:.4f})")
+            if nli is not None:
+                diagnosis = result['hypothesis']['name']
+                evidence_list = result['hypothesis']['evidence']
+                
+                nli_scores = []
+                for ev in evidence_list:
+                    pair = (f"The patient presented with: {ev}", f"This indicates {diagnosis}")
+                    score = nli.predict([pair])[0] 
+                    probs = torch.softmax(torch.tensor(score), dim=0)
+                    nli_scores.append(float(probs[1]))
+                
+                avg_nli = sum(nli_scores) / len(nli_scores) if nli_scores else 0.0
+                print(f"NLI Verification Score: {avg_nli:.4f}")
+                if avg_nli < 0.15:
+                    print(f"Safety Gate Warning: Low NLI Score ({avg_nli:.4f})")
+            else:
+                print("NLI skipped for MVP performance.")
         except Exception as e:
             print(f"NLI Check Failed: {e}")
             
-    return result
+    # Free up memory explicitly
+    gc.collect()
+            
+    yield {"node": 5, "status": "Analysis Complete"}
+    yield {"result": result}

@@ -49,14 +49,16 @@ Still prototype-level:
 ### Prerequisites
 
 - Python 3.10+
-- macOS (recommended for MPS/Metal acceleration)
+- Node.js 20+
+- npm 10+
+- macOS recommended for local audio / vision workflows
 
 ### Installation
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/MindScape.git
-   cd MindScape
+   git clone https://github.com/Yashwant-Bhyri/Mindscape.git
+   cd Mindscape
    ```
 
 2. **Set up a virtual environment**:
@@ -70,7 +72,14 @@ Still prototype-level:
    pip install -r requirements.txt
    ```
 
-4. **Configure Environment Variables**:
+4. **Install frontend dependencies**:
+   ```bash
+   cd frontend
+   npm install
+   cd ..
+   ```
+
+5. **Configure Environment Variables**:
    Copy `.env.example` to `.env` and add your API keys:
    ```bash
    cp .env.example .env
@@ -83,33 +92,72 @@ Still prototype-level:
 
 ### Running the App
 
-Start the Mesop server:
+Recommended local dev stack:
+
+```bash
+./start.sh
+```
+
+This starts:
+
+- FastAPI backend on `http://localhost:8002`
+- Next.js frontend on `http://localhost:3001`
+- API docs on `http://localhost:8002/docs`
+
+If you want to run the services manually:
+
+```bash
+uvicorn backend_api.main:app --reload --port 8002
+```
+
+```bash
+cd frontend
+npm run dev -- --port 3001
+```
+
+Legacy Mesop app:
+
 ```bash
 mesop app.py
 ```
-Open your browser and navigate to `http://localhost:32123`.
+
+That path still exists for the older UI, but the current primary product shell is the Next.js frontend.
 
 ## 🗺 Routes
 
 - `/` product landing page
 - `/organizations` organization and researcher portfolio
-- `/doctor?doctor=<doctor-id>` doctor profile
-- `/patient?doctor=<doctor-id>&patient=<patient-id>` patient portfolio
-- `/companion?doctor=<doctor-id>&patient=<patient-id>` patient async-care companion portal
-- `/workspace?doctor=<doctor-id>` doctor command center
-- `/nancy?doctor=<doctor-id>&patient=<patient-id>` Nancy care-companion console
-- `/session?doctor=<doctor-id>&patient=<patient-id>` live diagnostic session
-- `/research?doctor=<doctor-id>` research and doctor's corner
+- `/doctor` doctor gateway
+- `/doctor/<doctorId>` doctor profile
+- `/doctor/<doctorId>/workspace` doctor command center
+- `/doctor/<doctorId>/research` research and Doctor's Corner
+- `/doctor/<doctorId>/patient/<patientId>` clinician patient chart
+- `/doctor/<doctorId>/patient/<patientId>/nancy` clinician Nancy console
+- `/doctor/<doctorId>/patient/<patientId>/session` session intelligence
+- `/doctor/<doctorId>/patient/<patientId>/companion` patient companion portal
+- `/doctor/<doctorId>/patient/<patientId>/companion/nancy` patient Nancy surface
 
 ## 🛠 Tech Stack
 
-- **UI**: [Mesop](https://google.github.io/mesop/)
+- **Primary UI**: Next.js App Router frontend
+- **Legacy UI**: [Mesop](https://google.github.io/mesop/)
+- **Backend**: FastAPI
 - **ASR**: [SenseVoiceSmall](https://github.com/alibaba-damo-academy/FunASR)
 - **LLM**: OpenRouter + DeepSeek V4 Flash by default
 - **Voice Agent**: Deepgram-ready Nancy settings payload with `nova-3-medical` listening and `aura-2-vesta-en` speaking
 - **Fast Nancy Think Model**: `gpt-4o-mini` is the default Nancy reasoning model for lower latency conversational replies
 - **Retrieval**: Hybrid evidence retrieval over the clinical corpus
 - **Verification**: Cross-Encoder NLI
+
+## 🚢 Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for:
+
+- local launch flow
+- backend / frontend split
+- environment variables
+- production caveats
+- what is and is not production-ready yet
 
 ## 🤝 Contributing
 

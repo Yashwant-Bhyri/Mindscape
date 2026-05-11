@@ -1,0 +1,109 @@
+{
+  "patient_id": "omar-h-0138",
+  "events": [
+    {
+      "date": "2025-08-13",
+      "type": "intake",
+      "title": "Initial Intake Assessment",
+      "summary": "Initial intake assessment completed. Presenting concern: Alcohol Use Disorder. Risk level assigned: Low.",
+      "author": "intake_team",
+      "source": "manual"
+    },
+    {
+      "date": "2025-08-24",
+      "type": "consult",
+      "title": "Follow-up Consultation #1",
+      "summary": "Follow-up consultation. Medication adjustment discussed.",
+      "author": "priya-al-mansouri",
+      "source": "manual"
+    },
+    {
+      "date": "2025-09-15",
+      "type": "consult",
+      "title": "Follow-up Consultation #2",
+      "summary": "Follow-up consultation. Good response to CBT.",
+      "author": "priya-al-mansouri",
+      "source": "manual"
+    },
+    {
+      "date": "2025-10-17",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 7.4h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-20",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 5.8h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-27",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 6.6h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-03",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 5.8h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-08",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 3/10, Sleep: 8.2h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-12",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 7.9h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-19",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 4.5h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-12-21",
+      "type": "session",
+      "title": "Live Diagnostic Session #1",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Alcohol Use Disorder. BSV: V=0.27, A=0.43, D=0.32.",
+      "author": "priya-al-mansouri",
+      "source": "mindscape"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "session",
+      "title": "Live Diagnostic Session #2",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Alcohol Use Disorder. BSV: V=-0.45, A=0.79, D=0.64.",
+      "author": "priya-al-mansouri",
+      "source": "mindscape"
+    },
+    {
+      "date": "2026-02-23",
+      "type": "session",
+      "title": "Live Diagnostic Session #3",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Alcohol Use Disorder. BSV: V=-0.47, A=0.68, D=0.25.",
+      "author": "priya-al-mansouri",
+      "source": "mindscape"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "patient_id": "mei-p-0113",
+  "events": [
+    {
+      "date": "2025-10-12",
+      "type": "intake",
+      "title": "Initial Intake Assessment",
+      "summary": "Initial intake assessment completed. Presenting concern: Adjustment Disorder. Risk level assigned: Medium.",
+      "author": "intake_team",
+      "source": "manual"
+    },
+    {
+      "date": "2025-10-22",
+      "type": "consult",
+      "title": "Follow-up Consultation #1",
+      "summary": "Follow-up consultation. Sleep hygiene review.",
+      "author": "wei-chen",
+      "source": "manual"
+    },
+    {
+      "date": "2025-11-22",
+      "type": "consult",
+      "title": "Follow-up Consultation #2",
+      "summary": "Follow-up consultation. Sleep hygiene review.",
+      "author": "wei-chen",
+      "source": "manual"
+    },
+    {
+      "date": "2025-12-17",
+      "type": "consult",
+      "title": "Follow-up Consultation #3",
+      "summary": "Follow-up consultation. Anxiety management strategies reviewed.",
+      "author": "wei-chen",
+      "source": "manual"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 3/10, Sleep: 6.4h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-01-31",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 3/10, Sleep: 5.2h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-02-07",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 5.7h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-02-09",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 5.3h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-02-14",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 6.6h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-02-16",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 6.3h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-02-21",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 7.6h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-21",
+      "type": "session",
+      "title": "Live Diagnostic Session #1",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Adjustment Disorder. BSV: V=-0.39, A=0.3, D=0.54.",
+      "author": "wei-chen",
+      "source": "mindscape"
+    },
+    {
+      "date": "2026-04-28",
+      "type": "session",
+      "title": "Live Diagnostic Session #2",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Adjustment Disorder. BSV: V=0.1, A=0.83, D=0.67.",
+      "author": "wei-chen",
+      "source": "mindscape"
+    }
+  ]
+}

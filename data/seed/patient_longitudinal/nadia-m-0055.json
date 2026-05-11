@@ -1,0 +1,117 @@
+{
+  "patient_id": "nadia-m-0055",
+  "events": [
+    {
+      "date": "2025-11-11",
+      "type": "intake",
+      "title": "Initial Intake Assessment",
+      "summary": "Initial intake assessment completed. Presenting concern: ADHD. Risk level assigned: Medium.",
+      "author": "intake_team",
+      "source": "manual"
+    },
+    {
+      "date": "2025-11-28",
+      "type": "consult",
+      "title": "Follow-up Consultation #1",
+      "summary": "Follow-up consultation. Anxiety management strategies reviewed.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2025-12-26",
+      "type": "consult",
+      "title": "Follow-up Consultation #2",
+      "summary": "Follow-up consultation. Good response to CBT.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2026-01-16",
+      "type": "consult",
+      "title": "Follow-up Consultation #3",
+      "summary": "Follow-up consultation. Anxiety management strategies reviewed.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2026-02-08",
+      "type": "consult",
+      "title": "Follow-up Consultation #4",
+      "summary": "Follow-up consultation. Anxiety management strategies reviewed.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2026-03-02",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 3/10, Sleep: 6.4h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-08",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 6/10, Sleep: 5.6h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-14",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 6/10, Sleep: 7.6h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-17",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 6/10, Sleep: 6.7h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-22",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 6.8h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-28",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 6.6h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-30",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 5/10, Sleep: 7.6h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-04-06",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 4.9h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-05-07",
+      "type": "session",
+      "title": "Live Diagnostic Session #1",
+      "summary": "Live MindScape diagnostic session. Hypothesis: ADHD. BSV: V=-0.25, A=0.49, D=0.56.",
+      "author": "priya-silva",
+      "source": "mindscape"
+    }
+  ]
+}

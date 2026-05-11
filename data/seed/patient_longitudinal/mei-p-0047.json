@@ -1,0 +1,117 @@
+{
+  "patient_id": "mei-p-0047",
+  "events": [
+    {
+      "date": "2025-06-14",
+      "type": "intake",
+      "title": "Initial Intake Assessment",
+      "summary": "Initial intake assessment completed. Presenting concern: Bipolar II Disorder. Risk level assigned: Medium.",
+      "author": "intake_team",
+      "source": "manual"
+    },
+    {
+      "date": "2025-06-24",
+      "type": "consult",
+      "title": "Follow-up Consultation #1",
+      "summary": "Follow-up consultation. Medication adjustment discussed.",
+      "author": "jia-yamamoto",
+      "source": "manual"
+    },
+    {
+      "date": "2025-07-18",
+      "type": "consult",
+      "title": "Follow-up Consultation #2",
+      "summary": "Follow-up consultation. Anxiety management strategies reviewed.",
+      "author": "jia-yamamoto",
+      "source": "manual"
+    },
+    {
+      "date": "2025-08-12",
+      "type": "consult",
+      "title": "Follow-up Consultation #3",
+      "summary": "Follow-up consultation. Good response to CBT.",
+      "author": "jia-yamamoto",
+      "source": "manual"
+    },
+    {
+      "date": "2025-09-03",
+      "type": "consult",
+      "title": "Follow-up Consultation #4",
+      "summary": "Follow-up consultation. Medication adjustment discussed.",
+      "author": "jia-yamamoto",
+      "source": "manual"
+    },
+    {
+      "date": "2025-10-01",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 7.5h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-03",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 8.2h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-07",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 5/10, Sleep: 5.4h. Triggers noted: none reported.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-11",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 8.3h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-16",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 8/10, Sleep: 5.3h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-20",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 5.4h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-10-26",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 5/10, Sleep: 5.1h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-12-14",
+      "type": "session",
+      "title": "Live Diagnostic Session #1",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Bipolar II Disorder. BSV: V=-0.52, A=0.87, D=0.5.",
+      "author": "jia-yamamoto",
+      "source": "mindscape"
+    },
+    {
+      "date": "2026-01-20",
+      "type": "sos",
+      "title": "SOS Escalation",
+      "summary": "SOS escalation triggered. Severity: Medium. Resolved by: on_call_team.",
+      "author": "system",
+      "source": "nancy"
+    }
+  ]
+}

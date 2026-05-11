@@ -1,0 +1,101 @@
+{
+  "patient_id": "sofia-r-0021",
+  "events": [
+    {
+      "date": "2025-11-11",
+      "type": "intake",
+      "title": "Initial Intake Assessment",
+      "summary": "Initial intake assessment completed. Presenting concern: PTSD. Risk level assigned: Low.",
+      "author": "intake_team",
+      "source": "manual"
+    },
+    {
+      "date": "2025-11-23",
+      "type": "consult",
+      "title": "Follow-up Consultation #1",
+      "summary": "Follow-up consultation. Good response to CBT.",
+      "author": "aarav-okonkwo-8",
+      "source": "manual"
+    },
+    {
+      "date": "2025-12-26",
+      "type": "consult",
+      "title": "Follow-up Consultation #2",
+      "summary": "Follow-up consultation. Sleep hygiene review.",
+      "author": "aarav-okonkwo-8",
+      "source": "manual"
+    },
+    {
+      "date": "2026-01-21",
+      "type": "consult",
+      "title": "Follow-up Consultation #3",
+      "summary": "Follow-up consultation. Good response to CBT.",
+      "author": "aarav-okonkwo-8",
+      "source": "manual"
+    },
+    {
+      "date": "2026-02-13",
+      "type": "consult",
+      "title": "Follow-up Consultation #4",
+      "summary": "Follow-up consultation. Anxiety management strategies reviewed.",
+      "author": "aarav-okonkwo-8",
+      "source": "manual"
+    },
+    {
+      "date": "2026-03-18",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 8.1h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-24",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 5.2h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-03-27",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 5.6h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-04-01",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 4.8h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-04-05",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 6/10, Sleep: 5.7h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-04-09",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 5/10, Sleep: 8.3h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-04-15",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 5.3h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+[
+  {
+    "id": "amira-khan",
+    "name": "Dr. Amira Khan",
+    "title": "Consultant Psychiatrist & Director of Trauma Services",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Complex PTSD, Dissociative Disorders, Trauma Recovery",
+    "department": "Trauma & Dissociation Unit",
+    "panel_size": 186,
+    "research_interests": ["Voice biomarkers in trauma", "Longitudinal resilience tracking", "Multilingual therapy outcomes"],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Supervision + Teaching",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "triage_response": "18% faster than network average",
+      "followup_completion": "93%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 7,
+    "years_experience": 14
+  },
+  {
+    "id": "li-wei",
+    "name": "Dr. Li Wei",
+    "title": "Senior Research Psychiatrist, Computational Mood Lab",
+    "hospital_id": "north-star-shenzhen-outpost",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Mood Disorders, Digital Phenotyping, Bipolar Spectrum",
+    "department": "Computational Psychiatry Unit",
+    "panel_size": 141,
+    "research_interests": ["Bipolar recurrence forecasting", "Sleep as early-warning feature", "Multimodal affect detection"],
+    "weekly_schedule": {
+      "Monday": "Research + Clinic",
+      "Tuesday": "Full Research",
+      "Wednesday": "Clinic + Data Review",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Grants"
+    },
+    "performance": {
+      "prediction_precision": "78% top-tier triage agreement",
+      "protocol_adoption": "4 new clinics piloting model",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 4,
+    "years_experience": 11
+  },
+  {
+    "id": "elena-rossi",
+    "name": "Dr. Elena Rossi",
+    "title": "Clinical Psychologist & Recovery Design Lead",
+    "hospital_id": "pacific-rim-hong-kong-trauma-unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Complex Trauma, Eating Disorders, Family Systems",
+    "department": "Trauma Recovery Unit",
+    "panel_size": 96,
+    "research_interests": ["Family-mediated treatment loops", "Adolescent relapse prevention", "Cross-cultural voice biomarkers"],
+    "weekly_schedule": {
+      "Monday": "Clinic + Family Therapy",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research + Supervision",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching & Admin"
+    },
+    "performance": {
+      "family_engagement": "88% weekly participation",
+      "relapse_prevention": "Top-quartile outcomes",
+      "patient_satisfaction": "4.9/5"
+    },
+    "inbox_unread": 9,
+    "years_experience": 9
+  },
+  {
+    "id": "samir-okafor",
+    "name": "Dr. Samir Okafor",
+    "title": "Director of Community Psychiatry Innovation",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Community Psychiatry, Psychosis Early Detection, Task-Shifting",
+    "department": "Community Mental Health",
+    "panel_size": 208,
+    "research_interests": ["Lay-provider training models", "Digital decision-support in primary care", "Culturally adapted interventions"],
+    "weekly_schedule": {
+      "Monday": "Community Outreach",
+      "Tuesday": "Clinic + Training",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Research + Policy",
+      "Friday": "Supervision + Admin"
+    },
+    "performance": {
+      "community_reengagement": "64% after first missed contact",
+      "task_shifting_retention": "82% at 6 months",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 15
+  },
+  {
+    "id": "maya-patel",
+    "name": "Dr. Maya Patel",
+    "title": "Neuropsychiatry Research Fellow & Youth Program Lead",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "ADHD, ASD, Learning Disorders, Executive Function",
+    "department": "Neurodevelopmental & Youth Psychiatry",
+    "panel_size": 123,
+    "research_interests": ["Executive function interventions", "Adult ADHD diagnostic refinement", "School transition support"],
+    "weekly_schedule": {
+      "Monday": "Assessment Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research + Teaching",
+      "Thursday": "Full Clinic",
+      "Friday": "Neuropsych Testing + Admin"
+    },
+    "performance": {
+      "assessment_turnaround": "31% faster than service baseline",
+      "school_transition_success": "Top-quartile",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 5,
+    "years_experience": 7
+  },
+  {
+    "id": "wei-chen",
+    "name": "Dr. Wei Chen",
+    "title": "Consultant Psychiatrist, Early Psychosis Program",
+    "hospital_id": "shenzhen-mental-health-center",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Early Psychosis, Schizophrenia Spectrum, At-Risk Mental States",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 172,
+    "research_interests": ["Ultra-high risk detection", "Digital phenotyping in psychosis", "Family psychoeducation"],
+    "weekly_schedule": {
+      "Monday": "New Assessments",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Team Meeting + Admin"
+    },
+    "performance": {
+      "duration_of_untreated_psychosis_reduction": "42%",
+      "family_engagement": "79%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 8,
+    "years_experience": 12
+  },
+  {
+    "id": "sophia-lin",
+    "name": "Dr. Sophia Lin",
+    "title": "Consultant Psychiatrist, Mood & Anxiety Disorders",
+    "hospital_id": "aurora-bengaluru-center",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Treatment-Resistant Depression, Bipolar Spectrum, Anxiety Disorders",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 154,
+    "research_interests": ["Treatment-resistant depression", "Ketamine and esketamine outcomes", "Voice biomarkers in depression"],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Supervision",
+      "Thursday": "Full Clinic",
+      "Friday": "Research Day"
+    },
+    "performance": {
+      "trd_remission_rate": "38%",
+      "voice_biomarker_validation": "Ongoing",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 6,
+    "years_experience": 10
+  },
+  {
+    "id": "kenji-tanaka",
+    "name": "Dr. Kenji Tanaka",
+    "title": "Consultant Psychiatrist & Digital Therapeutics Lead",
+    "hospital_id": "north-star-boston-campus",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Digital Phenotyping, Mood Prediction, Wearable Integration",
+    "department": "Computational Psychiatry",
+    "panel_size": 98,
+    "research_interests": ["Multimodal mood forecasting", "Just-in-time adaptive interventions", "Wearable validation"],
+    "weekly_schedule": {
+      "Monday": "Research + Clinic",
+      "Tuesday": "Full Research",
+      "Wednesday": "Clinic + Data Review",
+      "Thursday": "Full Clinic",
+      "Friday": "Grants & Publications"
+    },
+    "performance": {
+      "mood_prediction_accuracy": "71% 7-day ahead",
+      "wearable_adherence": "68%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 3,
+    "years_experience": 8
+  },
+  {
+    "id": "fatima-alhassan",
+    "name": "Dr. Fatima Alhassan",
+    "title": "Consultant Psychiatrist, Community & Perinatal Mental Health",
+    "hospital_id": "african-mental-health-kigali",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Perinatal Mental Health, Community Psychiatry, Trauma",
+    "department": "Community & Perinatal Services",
+    "panel_size": 187,
+    "research_interests": ["Perinatal depression interventions", "Task-shifting in low-resource settings", "Cultural adaptation of CBT"],
+    "weekly_schedule": {
+      "Monday": "Community Outreach",
+      "Tuesday": "Clinic + Training",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Research + Policy",
+      "Friday": "Supervision"
+    },
+    "performance": {
+      "perinatal_screening_rate": "92%",
+      "task_shifting_success": "Top-quartile retention",
+      "patient_satisfaction": "4.3/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 13
+  },
+  {
+    "id": "chen-wei",
+    "name": "Dr. Chen Wei",
+    "title": "Director of Community Mental Health Services",
+    "hospital_id": "shenzhen-luohu-community-mental-health",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Community Psychiatry, Anxiety & Depression, Geriatric Mental Health",
+    "department": "Community Mental Health",
+    "panel_size": 231,
+    "research_interests": ["Stepped-care pathways", "Primary care integration", "Elderly depression"],
+    "weekly_schedule": {
+      "Monday": "Community Clinics",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Training & Supervision",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Policy"
+    },
+    "performance": {
+      "stepped_care_completion": "76%",
+      "elderly_depression_screening": "88%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 14,
+    "years_experience": 16
+  }
+]

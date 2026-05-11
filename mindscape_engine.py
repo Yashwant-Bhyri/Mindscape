@@ -40,6 +40,7 @@ medcpt_tokenizer = None
 medcpt_model = None
 nli_model = None
 retriever = None
+visual_analyzer = None
 
 _init_lock = threading.Lock()
 
@@ -50,6 +51,14 @@ def load_retriever():
         retriever = HybridRetriever()
         retriever.initialize()
     return retriever
+
+
+def get_visual_analyzer():
+    global visual_analyzer
+    if visual_analyzer is None:
+        from vision.face_analyzer import VisualBSVAnalyzer
+        visual_analyzer = VisualBSVAnalyzer()
+    return visual_analyzer
 
 # Global Indices 
 GLOBAL_BM25 = None
@@ -118,43 +127,103 @@ def load_nli_model():
 # Audio Recording & ASR
 # ---------------------------------------------------------
 def record_audio(duration=5, fs=16000):
-    """ Record audio from the default microphone. """
     print(f"Recording for {duration} seconds...")
     recording = sd.rec(int(duration * fs), samplerate=fs, channels=1, dtype='int16')
     sd.wait()
     print("Recording finished.")
-    
+
     temp_dir = os.path.join(os.environ.get("TEMP", "/tmp"), "mindscape_uploads")
     os.makedirs(temp_dir, exist_ok=True)
     filename = f"live_recording_{int(os.times().elapsed)}.wav"
     filepath = os.path.join(temp_dir, filename)
-    
+
     wav.write(filepath, fs, recording)
     return filepath
 
-def transcribe_audio(file_path):
-    """ Transcribe audio file using SenseVoice. Output includes paralinguistic tags. """
+
+def _transcribe_audio_gemini(file_path) -> str | None:
+    """
+    Transcribe via Gemini audio understanding. Returns tagged transcript in the
+    same format as SenseVoice (<LAUGH>, <CRY>, etc.) or None on failure.
+    """
+    key = os.getenv("GEMINI_API_KEY")
+    if not key:
+        return None
+    try:
+        genai.configure(api_key=key)
+        ext = os.path.splitext(file_path)[1].lower().lstrip(".")
+        mime = {"wav": "audio/wav", "mp3": "audio/mpeg", "m4a": "audio/mp4",
+                "ogg": "audio/ogg", "flac": "audio/flac"}.get(ext, "audio/wav")
+
+        audio_file = genai.upload_file(file_path, mime_type=mime)
+        # Wait for Files API processing (usually instant for short clips)
+        import time as _time
+        for _ in range(10):
+            if audio_file.state.name != "PROCESSING":
+                break
+            _time.sleep(0.5)
+            audio_file = genai.get_file(audio_file.name)
+
+        if audio_file.state.name == "FAILED":
+            raise ValueError("Gemini file processing failed")
+
+        model_name = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+        model = genai.GenerativeModel(model_name)
+        prompt = (
+            "Transcribe this audio verbatim. Embed paralinguistic cues inline using angle-bracket tags "
+            "matching SenseVoice format: <LAUGH>, <CRYING>, <SIGH>, <COUGH>, <BREATH>, <SNEEZE>. "
+            "Return only the transcript text with tags, no commentary or explanation."
+        )
+        response = model.generate_content([audio_file, prompt])
+        genai.delete_file(audio_file.name)
+        text = response.text.strip()
+        return text if text else None
+    except Exception as e:
+        print(f"Gemini STT failed: {e}")
+        return None
+
+
+def _transcribe_audio_whisper(file_path) -> str | None:
+    """
+    Transcribe via OpenAI Whisper API.
+    Uses WHISPER_API_KEY if set (for direct OpenAI), else falls back to OPENAI_API_KEY.
+    """
+    key = os.getenv("WHISPER_API_KEY") or os.getenv("OPENAI_API_KEY")
+    if not key:
+        return None
+    try:
+        # Always use direct OpenAI endpoint for Whisper — proxies may not support it
+        client = OpenAI(api_key=key)
+        with open(file_path, "rb") as f:
+            response = client.audio.transcriptions.create(model="whisper-1", file=f)
+        text = response.text.strip() if hasattr(response, "text") else str(response).strip()
+        return text if text else None
+    except Exception as e:
+        print(f"Whisper STT failed: {e}")
+        return None
+
+
+def _transcribe_audio_sensevoice(file_path) -> str:
+    """Transcribe via local SenseVoiceSmall. Includes paralinguistic tags."""
     init_models()
-    
+
     import soundfile as sf
     data, sample_rate = sf.read(file_path)
     waveform = torch.from_numpy(data).float()
-    
-    # torchaudio expects [channels, time], soundfile returns [time, channels]
+
     if waveform.ndim == 1:
         waveform = waveform.unsqueeze(0)
     else:
         waveform = waveform.T
-    
+
     if sample_rate != 16000:
         resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
         waveform = resampler(waveform)
-    
+
     if waveform.shape[0] > 1:
         waveform = torch.mean(waveform, dim=0, keepdim=True)
-        
-    audio_data = waveform.squeeze().numpy()
 
+    audio_data = waveform.squeeze().numpy()
     res = sensevoice_model.generate(
         input=audio_data,
         cache={},
@@ -163,11 +232,28 @@ def transcribe_audio(file_path):
         batch_size_s=60,
         merge_vad=True,
         disable_pbar=True,
-        disable_log=True
+        disable_log=True,
     )
     if isinstance(res, list) and len(res) > 0:
         return res[0].get("text", "")
     return ""
+
+
+def transcribe_audio(file_path) -> tuple[str, str]:
+    """
+    Multi-path transcription. Priority: Gemini API → Whisper API → SenseVoice local.
+    Returns (transcript_text, provider_name).
+    """
+    text = _transcribe_audio_gemini(file_path)
+    if text:
+        return text, "Gemini Audio"
+
+    text = _transcribe_audio_whisper(file_path)
+    if text:
+        return text, "OpenAI Whisper"
+
+    text = _transcribe_audio_sensevoice(file_path)
+    return text, "SenseVoice (Local)"
 
 
 # ---------------------------------------------------------
@@ -337,10 +423,34 @@ def hybrid_search_rrf(query, data_list, corpus_texts, top_k=3, k_rrf=60):
     return final_results
 
 
-def fuse_multimodal_data(transcript, affect_scores):
+def fuse_multimodal_data(transcript, affect_scores, visual_bsv=None):
     tags = re.findall(r'<[^>]+>', transcript)
     clean_text = re.sub(r'<[^>]+>', '', transcript).strip()
-    
+
+    somatic_block = ""
+    if visual_bsv and visual_bsv.get("face_detected"):
+        twitch_zones = ", ".join(visual_bsv.get("twitch_zones", [])) or "None detected"
+        active_aus = ", ".join(visual_bsv.get("active_aus", [])) or "None"
+        blink = visual_bsv.get("blink_rate_per_min", 0.0)
+        blink_note = "Normal"
+        if blink < 10:
+            blink_note = "LOW — Parkinson's, severe MDD, fatigue"
+        elif blink > 28:
+            blink_note = "HIGH — Anxiety, stimulant use, stress"
+
+        somatic_block = f"""
+4. SOMATIC/VISUAL AFFECT (FaceMesh CV — 5s window):
+   - Facial Valence:            {visual_bsv.get('facial_valence', 0.0):.3f} (-1=negative, +1=positive)
+   - Psychomotor Agitation:     {visual_bsv.get('psychomotor_agitation_score', 0.0):.3f} (high-frequency micro-movement energy)
+   - Flat Affect Score:         {visual_bsv.get('flat_affect_score', 0.0):.3f} (>0.7 = clinically significant flat affect)
+   - Gaze Stability:            {visual_bsv.get('gaze_stability', 1.0):.3f} (<0.4 = hypervigilant/darting gaze)
+   - Blink Rate:                {blink:.0f}/min [{blink_note}]
+   - Micro-twitch zones:        {twitch_zones}
+   - Active Action Units:       {active_aus}
+   NOTE: Contradictions between verbal content and somatic state (e.g., reports calm but shows
+         high agitation + low gaze stability + AU4) are diagnostically significant — weight heavily.
+"""
+
     return f"""
 [MULTIMODAL FUSION DATA]
 
@@ -356,12 +466,58 @@ def fuse_multimodal_data(transcript, affect_scores):
    - Arousal (0 to 1):  {affect_scores['Arousal']}
    - Dominance (0 to 1):{affect_scores['Dominance']}
    - Voice Instability (Tremor): {'DETECTED' if affect_scores['Voice_Instability_Flag'] else 'Normal'}
-"""
+{somatic_block}"""
+
+
+def get_llm_config():
+    """Resolve the preferred LLM provider and model from environment variables."""
+    gemini_key = os.getenv("GEMINI_API_KEY")
+    gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+
+    openrouter_key = os.getenv("OPENROUTER_API_KEY")
+    openai_key = os.getenv("OPENAI_API_KEY")
+    deepseek_key = os.getenv("DEEPSEEK_API_KEY")
+
+    base_url = os.getenv("OPENAI_BASE_URL", "").strip()
+    explicit_model = os.getenv("OPENAI_MODEL") or os.getenv("LLM_MODEL")
+
+    if openrouter_key or (openai_key and ("openrouter.ai" in base_url or openai_key.startswith("sk-or-v1-"))):
+        return {
+            "provider": "openrouter",
+            "api_key": openrouter_key or openai_key,
+            "base_url": base_url or "https://openrouter.ai/api/v1",
+            "model": explicit_model or "deepseek/deepseek-v4-flash",
+        }
+
+    if deepseek_key or (openai_key and "deepseek.com" in base_url):
+        return {
+            "provider": "deepseek",
+            "api_key": deepseek_key or openai_key,
+            "base_url": base_url or "https://api.deepseek.com",
+            "model": explicit_model or "deepseek-v4-flash",
+        }
+
+    if openai_key:
+        return {
+            "provider": "openai",
+            "api_key": openai_key,
+            "base_url": base_url or None,
+            "model": explicit_model or "gpt-4o",
+        }
+
+    if gemini_key:
+        return {
+            "provider": "gemini",
+            "api_key": gemini_key,
+            "model": gemini_model,
+        }
+
+    return None
 
 # ---------------------------------------------------------
 # Main Orchestrator (Diagnosis)
 # ---------------------------------------------------------
-def get_diagnosis(transcript, audio_path=None):
+def get_diagnosis(transcript, audio_path=None, patient_context=None):
     """
     Combines Multimodal Fusion (Task 1) and Hybrid Retrieval (Task 2).
     Yields progress dicts `{"node": int, "status": str}` and finally `{"result": dict}`
@@ -377,11 +533,31 @@ def get_diagnosis(transcript, audio_path=None):
         except Exception as e:
             print(f"Error extracting affect from audio: {e}")
             yield {"log": f"Vocal extraction bypassed or failed: {e}"}
-            
+
+    # 1b. Capture somatic/visual BSV if camera is active
+    visual_bsv = None
+    try:
+        va = get_visual_analyzer()
+        if va.running and va.latest:
+            visual_bsv = va.get_visual_bsv()
+            fd = visual_bsv.get("face_detected", False)
+            if fd:
+                yield {"log": f"Somatic BSV captured: Blink={visual_bsv['blink_rate_per_min']:.0f}/min, Agitation={visual_bsv['psychomotor_agitation_score']:.2f}, FlatAffect={visual_bsv['flat_affect_score']:.2f}, GazeStability={visual_bsv['gaze_stability']:.2f}"}
+                if visual_bsv.get("twitch_zones"):
+                    yield {"log": f"Micro-twitches detected in: {', '.join(visual_bsv['twitch_zones'])}"}
+            else:
+                yield {"log": "Camera active but no face detected — somatic channel skipped."}
+                visual_bsv = None
+    except Exception as e:
+        yield {"log": f"Somatic capture skipped: {e}"}
+
     # 2. Fuse the context
     yield {"node": 2, "status": "Multimodal Context Fusion & BSV Mapping"}
-    fusion_context = fuse_multimodal_data(transcript, affect_data)
-    yield {"log": f"Fused Audio-Linguistic Context. Transcript Length: {len(transcript)}"}
+    fusion_context = fuse_multimodal_data(transcript, affect_data, visual_bsv)
+    channels = "Audio + Linguistic"
+    if visual_bsv:
+        channels += " + Somatic/Visual"
+    yield {"log": f"Fused {channels} context. Transcript Length: {len(transcript)}"}
     
     # 3. Hybrid Retrieval (RRF) for DSM-5 Knowledge
     yield {"node": 3, "status": "Hybrid Clinical Retrieval (FAISS/BM25)"}
@@ -407,18 +583,28 @@ def get_diagnosis(transcript, audio_path=None):
 
     yield {"node": 4, "status": "LLM Synthesis & Diagnostics Gate"}
     # 4. Prepare Ultimate System Prompt
-    system_prompt = f"""You are MindScape, an elite AI psychiatric diagnostic assistant. Your analysis must be grounded strictly in the provided multimodal data and retrieved DSM-5 texts.
+    patient_context_block = ""
+    if patient_context:
+        patient_context_block = f"""
+[PATIENT LONGITUDINAL CONTEXT]
+{patient_context}
+"""
+
+    system_prompt = f"""You are MindScape, an elite AI psychiatric diagnostic assistant. Your analysis must be grounded strictly in the provided multimodal data, patient context, and retrieved DSM-5 texts.
 
 {fusion_context}
+
+{patient_context_block}
 
 [RETRIEVED DSM-5 KNOWLEDGE BASE]
 {dsm_context}
 
 **Process:**
 1.  **Analyze the Fusion Data**: Weigh the explicit speech against the subconscious acoustic affect. Pay special attention if speech contradicts the affect (e.g., strong words but low Volume/Arousal).
-2.  **Map Evidence**: Compare the multimodal state against the provided DSM-5 Criteria. If any Documented Historical Clinical Cases are retrieved, evaluate their symptoms and diagnoses against the current patient to identify masked or complex layered presentations.
-3.  **Construct BSV**: Echo the Valence, Arousal, and Dominance derived from the acoustic signals into the final BSV output.
-4.  **Formulate Hypothesis**: 
+2.  **Incorporate Longitudinal Context**: Use the patient context to refine interpretation, but do not let prior labels override the current session evidence.
+3.  **Map Evidence**: Compare the multimodal state against the provided DSM-5 Criteria. If any Documented Historical Clinical Cases are retrieved, evaluate their symptoms and diagnoses against the current patient to identify masked or complex layered presentations.
+4.  **Construct BSV**: Echo the Valence, Arousal, and Dominance derived from the acoustic signals into the final BSV output.
+5.  **Formulate Hypothesis**: 
     - If criteria are met -> Name the Disorder (e.g., "Major Depressive Disorder").
     - If criteria are partially met but significant -> "Adjustment Disorder" or "Prodromal [Disorder]".
     - If no significant symptoms -> "Normal / No Diagnosis".
@@ -454,19 +640,18 @@ def get_diagnosis(transcript, audio_path=None):
 
 **Critical Rules:**
 - Do not hallucinate symptoms.
+- Do not overfit to prior diagnosis if the current session does not support it.
 - If the audio is short (under 5 words) and affect is Normal, default to "Normal" and safety_gate "PASS".
 - If the transcript is empty, output safety_gate "FAIL".
 """
 
-    gemini_key = os.getenv("GEMINI_API_KEY")
-    deepseek_key = os.getenv("DEEPSEEK_API_KEY") or os.getenv("OPENAI_API_KEY")
-    
+    llm_config = get_llm_config()
     result = None
 
-    if gemini_key:
+    if llm_config and llm_config["provider"] == "gemini":
         try:
-            genai.configure(api_key=gemini_key)
-            model = genai.GenerativeModel('gemini-2.0-flash', 
+            genai.configure(api_key=llm_config["api_key"])
+            model = genai.GenerativeModel(llm_config["model"],
                 generation_config={"response_mime_type": "application/json"})
             response = model.generate_content(system_prompt)
             result = json.loads(response.text)
@@ -474,26 +659,19 @@ def get_diagnosis(transcript, audio_path=None):
              print(f"Gemini Error: {e}")
              result = None
 
-    # Fallback to Deepseek/OpenAI
-    if not result and deepseek_key:
-        base_url = os.getenv("OPENAI_BASE_URL")
-        client = OpenAI(api_key=deepseek_key, base_url=base_url)
+    # Fallback to OpenAI-compatible providers (OpenRouter, DeepSeek, OpenAI)
+    if not result and llm_config and llm_config["provider"] in {"openrouter", "deepseek", "openai"}:
+        client = OpenAI(api_key=llm_config["api_key"], base_url=llm_config["base_url"])
         try:
-            model_id = "gpt-4o"
-            if "deepseek" in (os.getenv("OPENAI_BASE_URL") or "") or "DeepSeek" in (os.getenv("DEEPSEEK_API_KEY") or ""):
-                model_id = "deepseek-chat"
-            elif "openrouter" in (os.getenv("OPENAI_BASE_URL") or ""):
-                model_id = "deepseek/deepseek-chat"
-
             response = client.chat.completions.create(
-                model=model_id,
+                model=llm_config["model"],
                 messages=[{"role": "system", "content": system_prompt}],
                 response_format={"type": "json_object"},
                 max_tokens=4096
             )
             result = json.loads(response.choices[0].message.content)
         except Exception as e:
-            print(f"LLM Error: {e}")
+            print(f"{llm_config['provider'].title()} LLM Error: {e}")
 
     # Safety Defaults
     # Safety Defaults
@@ -520,6 +698,10 @@ def get_diagnosis(transcript, audio_path=None):
         ui_evidence_list.append(f"[{ev['source']}] {ev['title']}: {ev['text']}")
     
     result['retrieved_evidence'] = ui_evidence_list
+
+    # Attach visual BSV to result for UI rendering
+    if visual_bsv:
+        result['visual_bsv'] = visual_bsv
 
     # ---------------------------------------------------------
     # STRICT NLI SAFETY GATE

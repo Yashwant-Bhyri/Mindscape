@@ -15,3 +15,8 @@ mesop_*.log
 /tmp/mindscape_uploads/
 retrieval/*.faiss
 retrieval/chunk_metadata.json
+data/runtime/*.json
+frontend/.next/
+frontend/node_modules/
+frontend/tsconfig.tsbuildinfo
+outputs/

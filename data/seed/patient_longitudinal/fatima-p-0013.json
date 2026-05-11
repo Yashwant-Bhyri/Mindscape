@@ -1,0 +1,125 @@
+{
+  "patient_id": "fatima-p-0013",
+  "events": [
+    {
+      "date": "2025-08-13",
+      "type": "intake",
+      "title": "Initial Intake Assessment",
+      "summary": "Initial intake assessment completed. Presenting concern: Major Depressive Disorder. Risk level assigned: Medium.",
+      "author": "intake_team",
+      "source": "manual"
+    },
+    {
+      "date": "2025-08-29",
+      "type": "consult",
+      "title": "Follow-up Consultation #1",
+      "summary": "Follow-up consultation. Medication adjustment discussed.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2025-09-17",
+      "type": "consult",
+      "title": "Follow-up Consultation #2",
+      "summary": "Follow-up consultation. Sleep hygiene review.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2025-10-19",
+      "type": "consult",
+      "title": "Follow-up Consultation #3",
+      "summary": "Follow-up consultation. Sleep hygiene review.",
+      "author": "priya-silva",
+      "source": "manual"
+    },
+    {
+      "date": "2025-11-13",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 6.4h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-18",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 3/10, Sleep: 4.9h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-24",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 6/10, Sleep: 8.4h. Triggers noted: relationship.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-11-30",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 5/10, Sleep: 4.7h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-12-05",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 8.0h. Triggers noted: sleep debt.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-12-09",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 7/10, Sleep: 4.5h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-12-14",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 4/10, Sleep: 8.0h. Triggers noted: trauma reminder.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2025-12-19",
+      "type": "checkin",
+      "title": "Nancy Check-in",
+      "summary": "Daily/weekly check-in via Nancy. Mood: 5/10, Sleep: 4.7h. Triggers noted: work stress.",
+      "author": "nancy_agent",
+      "source": "nancy"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "session",
+      "title": "Live Diagnostic Session #1",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Major Depressive Disorder. BSV: V=-0.41, A=0.63, D=0.24.",
+      "author": "priya-silva",
+      "source": "mindscape"
+    },
+    {
+      "date": "2026-03-02",
+      "type": "session",
+      "title": "Live Diagnostic Session #2",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Major Depressive Disorder. BSV: V=-0.15, A=0.63, D=0.7.",
+      "author": "priya-silva",
+      "source": "mindscape"
+    },
+    {
+      "date": "2026-04-10",
+      "type": "session",
+      "title": "Live Diagnostic Session #3",
+      "summary": "Live MindScape diagnostic session. Hypothesis: Major Depressive Disorder. BSV: V=0.08, A=0.37, D=0.79.",
+      "author": "priya-silva",
+      "source": "mindscape"
+    }
+  ]
+}

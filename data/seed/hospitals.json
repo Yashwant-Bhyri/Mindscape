@@ -1,0 +1,200 @@
+[
+  {
+    "id": "shenzhen-mental-health-center",
+    "name": "Shenzhen Mental Health Center",
+    "organization_id": "shenzhen-mental-health-network",
+    "type": "Tertiary Psychiatric Hospital",
+    "district": "Futian",
+    "address": "1080 Fuqiang Road, Futian District, Shenzhen",
+    "beds": 520,
+    "specialties": ["Mood Disorders", "Psychosis", "Trauma & Dissociation", "Child & Adolescent", "Addiction"],
+    "research_focus": ["Early psychosis detection", "Digital phenotyping", "Voice biomarkers"]
+  },
+  {
+    "id": "shenzhen-nanshan-psychiatric-hospital",
+    "name": "Shenzhen Nanshan Psychiatric Hospital",
+    "organization_id": "shenzhen-mental-health-network",
+    "type": "District Psychiatric Hospital",
+    "district": "Nanshan",
+    "address": "12 Nanshan Avenue, Nanshan District, Shenzhen",
+    "beds": 280,
+    "specialties": ["Anxiety & Mood", "Geriatric Psychiatry", "Community Outreach"],
+    "research_focus": ["Community-based stepped care", "Elderly depression"]
+  },
+  {
+    "id": "aurora-singapore-trauma-clinic",
+    "name": "Aurora Singapore Trauma & Resilience Clinic",
+    "organization_id": "aurora-mind-institute",
+    "type": "Specialist Trauma Center",
+    "district": "Orchard",
+    "address": "3 Orchard Boulevard, Singapore",
+    "beds": 120,
+    "specialties": ["Complex PTSD", "Dissociative Disorders", "Refugee Mental Health"],
+    "research_focus": ["Voice biomarkers in trauma", "Multilingual therapy outcomes"]
+  },
+  {
+    "id": "aurora-bengaluru-center",
+    "name": "Aurora Bengaluru Center for Precision Psychiatry",
+    "organization_id": "aurora-mind-institute",
+    "type": "Academic Psychiatry Center",
+    "district": "Koramangala",
+    "address": "45 Koramangala 5th Block, Bengaluru",
+    "beds": 180,
+    "specialties": ["Mood Disorders", "Neurodevelopmental", "Digital Therapeutics"],
+    "research_focus": ["Computational mood modeling", "Wearable integration"]
+  },
+  {
+    "id": "north-star-boston-campus",
+    "name": "North Star Boston Campus",
+    "organization_id": "north-star-neurohealth",
+    "type": "Academic Medical Center - Psychiatry",
+    "district": "Longwood",
+    "address": "330 Brookline Avenue, Boston, MA",
+    "beds": 240,
+    "specialties": ["Adolescent Psychiatry", "Bipolar Spectrum", "Computational Psychiatry"],
+    "research_focus": ["Digital phenotyping", "Adolescent mood prediction"]
+  },
+  {
+    "id": "north-star-nairobi-hub",
+    "name": "North Star Nairobi Community Hub",
+    "organization_id": "african-mental-health-initiative",
+    "type": "Community Mental Health Hub",
+    "district": "Kilimani",
+    "address": "Kilimani Road, Nairobi",
+    "beds": 80,
+    "specialties": ["Community Psychiatry", "Task-Shifting", "Primary Care Integration"],
+    "research_focus": ["Lay-provider training", "Digital decision support"]
+  },
+  {
+    "id": "harborview-adolescent-center",
+    "name": "Harborview Adolescent & Young Adult Center",
+    "organization_id": "harborview-psychiatric-center",
+    "type": "Specialist Youth Mental Health",
+    "district": "Cambridge",
+    "address": "1493 Cambridge Street, Cambridge, MA",
+    "beds": 160,
+    "specialties": ["ADHD", "Anxiety & Mood", "Neurodevelopmental Assessment"],
+    "research_focus": ["Precision adolescent mood", "Wearable + voice biomarkers"]
+  },
+  {
+    "id": "pacific-rim-hong-kong-trauma-unit",
+    "name": "Pacific Rim Hong Kong Trauma Recovery Unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "type": "Specialist Trauma Unit",
+    "district": "Central",
+    "address": "9 Queen's Road Central, Hong Kong",
+    "beds": 95,
+    "specialties": ["Complex Trauma", "Dissociative Identity", "Refugee & Asylum"],
+    "research_focus": ["Cross-cultural trauma recovery", "Voice analysis"]
+  },
+  {
+    "id": "african-mental-health-kigali",
+    "name": "African Mental Health Initiative - Kigali Center",
+    "organization_id": "african-mental-health-initiative",
+    "type": "Regional Training & Care Center",
+    "district": "Kigali",
+    "address": "KG 5 Ave, Kigali",
+    "beds": 110,
+    "specialties": ["Community Psychiatry", "Trauma", "Addiction"],
+    "research_focus": ["Task-shifting models", "Cultural adaptation"]
+  },
+  {
+    "id": "shenzhen-luohu-community-mental-health",
+    "name": "Shenzhen Luohu Community Mental Health Center",
+    "organization_id": "shenzhen-mental-health-network",
+    "type": "Community Mental Health Center",
+    "district": "Luohu",
+    "address": "1028 Shennan East Road, Luohu District",
+    "beds": 150,
+    "specialties": ["Anxiety & Depression", "Geriatric", "Substance Use"],
+    "research_focus": ["Stepped-care pathways", "Primary care integration"]
+  },
+  {
+    "id": "aurora-singapore-child-adolescent",
+    "name": "Aurora Singapore Child & Adolescent Mental Health",
+    "organization_id": "aurora-mind-institute",
+    "type": "Specialist Child & Adolescent",
+    "district": "Novena",
+    "address": "11 Jalan Tan Tock Seng, Singapore",
+    "beds": 140,
+    "specialties": ["Neurodevelopmental", "Anxiety & Mood", "Eating Disorders"],
+    "research_focus": ["Early intervention", "Digital therapeutics for youth"]
+  },
+  {
+    "id": "north-star-shenzhen-outpost",
+    "name": "North Star Shenzhen Digital Phenotyping Outpost",
+    "organization_id": "north-star-neurohealth",
+    "type": "Research & Innovation Hub",
+    "district": "Nanshan",
+    "address": "Science Park, Nanshan District, Shenzhen",
+    "beds": 60,
+    "specialties": ["Digital Phenotyping", "Mood Prediction", "Voice Biomarker Research"],
+    "research_focus": ["Multimodal affect detection", "Longitudinal mood modeling"]
+  },
+  {
+    "id": "pacific-rim-sydney-trauma",
+    "name": "Pacific Rim Sydney Trauma & Refugee Mental Health",
+    "organization_id": "pacific-rim-trauma-institute",
+    "type": "Specialist Trauma & Refugee",
+    "district": "Surry Hills",
+    "address": "185 Elizabeth Street, Sydney",
+    "beds": 85,
+    "specialties": ["Complex Trauma", "Refugee Mental Health", "Dissociative Disorders"],
+    "research_focus": ["Cross-cultural voice biomarkers", "Trauma recovery outcomes"]
+  },
+  {
+    "id": "harborview-mood-disorders-clinic",
+    "name": "Harborview Mood Disorders Clinic",
+    "organization_id": "harborview-psychiatric-center",
+    "type": "Specialist Mood Disorders",
+    "district": "Boston",
+    "address": "75 Francis Street, Boston, MA",
+    "beds": 130,
+    "specialties": ["Bipolar Spectrum", "Treatment-Resistant Depression", "Psychotic Depression"],
+    "research_focus": ["Computational mood forecasting", "Treatment response prediction"]
+  },
+  {
+    "id": "african-mental-health-addis",
+    "name": "African Mental Health Initiative - Addis Ababa Center",
+    "organization_id": "african-mental-health-initiative",
+    "type": "Regional Care & Training Hub",
+    "district": "Addis Ababa",
+    "address": "Bole Road, Addis Ababa",
+    "beds": 95,
+    "specialties": ["Community Psychiatry", "Trauma", "Perinatal Mental Health"],
+    "research_focus": ["Perinatal mental health", "Task-shifting"]
+  },
+  {
+    "id": "shenzhen-baoan-psychiatric-hospital",
+    "name": "Shenzhen Bao'an Psychiatric Hospital",
+    "organization_id": "shenzhen-mental-health-network",
+    "type": "District Psychiatric Hospital",
+    "district": "Bao'an",
+    "address": "88 Bao'an Avenue, Bao'an District, Shenzhen",
+    "beds": 310,
+    "specialties": ["Psychosis", "Mood Disorders", "Addiction", "Forensic Psychiatry"],
+    "research_focus": ["Psychosis early intervention", "Forensic mental health"]
+  },
+  {
+    "id": "aurora-bengaluru-community-outreach",
+    "name": "Aurora Bengaluru Community Outreach Program",
+    "organization_id": "aurora-mind-institute",
+    "type": "Community Mental Health Program",
+    "district": "Whitefield",
+    "address": "Whitefield Main Road, Bengaluru",
+    "beds": 70,
+    "specialties": ["Anxiety & Depression", "Substance Use", "Geriatric"],
+    "research_focus": ["Community-based care models", "Digital outreach"]
+  },
+  {
+    "id": "north-star-nairobi-youth-hub",
+    "name": "North Star Nairobi Youth Mental Health Hub",
+    "organization_id": "african-mental-health-initiative",
+    "type": "Youth-Focused Community Center",
+    "district": "Westlands",
+    "address": "Westlands Road, Nairobi",
+    "beds": 55,
+    "specialties": ["Adolescent Psychiatry", "Anxiety & Mood", "Neurodevelopmental"],
+    "research_focus": ["Youth digital phenotyping", "School-based interventions"]
+  }
+]

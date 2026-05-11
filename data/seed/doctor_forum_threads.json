@@ -1,0 +1,460 @@
+{
+  "_comment": "Mental-health clinician forum seed: cases, hypotheses, methodology, screening insights, and literature — Reddit-for-psychiatry shaped threads.",
+  "amira-khan": [
+    {
+      "id": "seed-amira-f01",
+      "title": "Freeze-state vocal signatures vs sleep debt — are we over-clustering?",
+      "flair": "Trend watch",
+      "kind": "trend",
+      "community": "Trauma Signal Exchange",
+      "author": "Dr. M. Okonkwo",
+      "created": "2026-05-10T09:15:00",
+      "body": "Several colleagues noted dissociative freeze narratives rising on forums after abrupt routine disruption. Biometrically we often see sleep debt mimicking low-affect depression on weekly dashboards. How are you separating exhaustion-driven flattening from genuine mood-driven withdrawal when timeline context is thin?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-amira-f01-r1",
+          "author": "Dr. Amira Khan",
+          "body": "We stopped trusting cross-sectional mood scores alone. Two-session trajectory plus sleep stability checks reduced misclassification in our panel.",
+          "created": "2026-05-10T11:02:00",
+          "date_label": "May 10, 2026"
+        },
+        {
+          "id": "seed-amira-f01-r2",
+          "author": "Dr. Li Wei",
+          "body": "Travel disruption now gets its own escalation tag in our forecasting panel — helped distinguish rhythm breaks from recurrent depression.",
+          "created": "2026-05-10T14:40:00",
+          "date_label": "May 10, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-amira-r02",
+      "title": "RCT: structured prompts improve dissociation follow-up quality",
+      "flair": "Research share",
+      "kind": "research",
+      "community": "Doctor's Corner",
+      "author": "Dr. Elena Rossi",
+      "created": "2026-05-09T16:30:00",
+      "body": "Open-access brief on trauma-focused sessions where recall fragmentation blocks conventional history-taking. Shared templates improved clinician-rated coherence without lengthening visits.",
+      "link": "https://example.org/clinical-templates-dissociation-2026",
+      "link_title": "OA brief: structured prompts in fragmented recall",
+      "replies": [
+        {
+          "id": "seed-amira-r02-r1",
+          "author": "Dr. Samir Okafor",
+          "body": "Adapted a shortened version for community outreach — families understood timelines better when prompts were concrete.",
+          "created": "2026-05-09T18:10:00",
+          "date_label": "May 09, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-amira-d03",
+      "title": "When do you escalate after sensory-trigger spikes pre-work transition?",
+      "flair": "Case question",
+      "kind": "question",
+      "community": "Trauma Signal Exchange",
+      "author": "Dr. Amira Khan",
+      "created": "2026-05-08T08:45:00",
+      "body": "Patient has PTSD with panic; grounding skills work but anticipatory anxiety spikes days before return-to-office. Looking for thresholds others use before bumping medication vs intensifying exposure pacing.",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-amira-d03-r1",
+          "author": "Dr. Maya Patel",
+          "body": "We use consecutive sleep under 5h plus functional drop plus two panic-equivalent days as a structured review trigger, not automatic med change.",
+          "created": "2026-05-08T12:20:00",
+          "date_label": "May 08, 2026"
+        },
+        {
+          "id": "seed-amira-d03-r2",
+          "author": "Dr. Li Wei",
+          "body": "If energy climbs while sleep compresses, I shift to recurrence pathway review — different from pure anxiety escalation.",
+          "created": "2026-05-08T15:00:00",
+          "date_label": "May 08, 2026"
+        },
+        {
+          "id": "seed-amira-d03-r3",
+          "author": "Dr. Amira Khan",
+          "body": "Helpful — adopting the consecutive sleep window as part of our shared rubric.",
+          "created": "2026-05-09T09:00:00",
+          "date_label": "May 09, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-amira-x04",
+      "title": "Meta-analysis: short-interval follow-up after acute panic episodes",
+      "flair": "Research share",
+      "kind": "research",
+      "community": "Evidence Digest",
+      "author": "Curator Bot (edited by Dr. Khan)",
+      "created": "2026-05-07T07:00:00",
+      "body": "Two fresh meta-analyses favor tighter follow-up windows for retention after acute panic — especially when patients work irregular shifts. Worth aligning care-coordinator outreach cadence.",
+      "link": "https://example.org/panic-followup-meta-2026",
+      "link_title": "Meta-analysis snapshot (paywalled summary)",
+      "replies": []
+    },
+    {
+      "id": "seed-amira-h05",
+      "seed_score": 47,
+      "title": "Hypothesis: language-markers of ambivalence predict dropout before PHQ-9 moves — seeking replication partners",
+      "flair": "Hypothesis",
+      "kind": "hypothesis",
+      "community": "Crowd wisdom · Linguistics",
+      "author": "Dr. Amira Khan",
+      "created": "2026-05-06T11:20:00",
+      "body": "We're seeing patients verbally hedge ('maybe', 'I guess') spike two sessions before they ghost digital check-ins, while scale scores look flat. N is small. Who has structured text or voice features tied to engagement, not just severity?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-amira-h05-r1",
+          "author": "Dr. Li Wei",
+          "body": "We see something similar in mood panel — consider anchoring to sleep debt events, not just session count.",
+          "created": "2026-05-06T14:00:00",
+          "date_label": "May 06, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-amira-s06",
+      "seed_score": 31,
+      "title": "Teaching case: trauma patient returned to full work capacity after staggered exposure + family psychoeducation",
+      "flair": "Success case",
+      "kind": "success_case",
+      "community": "Case teaching",
+      "author": "Dr. Amira Khan",
+      "created": "2026-05-05T09:00:00",
+      "body": "12-week arc: we slowed exposure pace when autonomic spikes overlapped with sleep under 5h, prioritized sleep protocol, then re-ran exposure ladder. Key was explicit family contract on reassurance limits — share if you want our one-pager template.",
+      "link": "",
+      "link_title": "",
+      "replies": []
+    },
+    {
+      "id": "seed-amira-f07",
+      "seed_score": 28,
+      "title": "Failure case: rapid titration after 'high functioning' self-report — manic switch we misread as anxiety",
+      "flair": "Failure / near-miss",
+      "kind": "failure_case",
+      "community": "Morbidity & learning",
+      "author": "Attending (de-identified)",
+      "created": "2026-05-04T16:10:00",
+      "body": "Posting for culture of safety. Patient presented with sleep loss and restlessness; we pushed anxiolytic adjustment before full mood history from family. Hypomanic clarity in retrospect. What guardrails do you use before med changes when collateral is partial?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-amira-f07-r1",
+          "author": "Dr. Maya Patel",
+          "body": "Rule: no stimulant or serotonergic boost without at least one collateral or timeline screen for bipolar spectrum when sleep is compressing.",
+          "created": "2026-05-04T18:00:00",
+          "date_label": "May 04, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-amira-m08",
+      "seed_score": 22,
+      "title": "Methodology: 5-minute voice + one open prompt as depression screen triage in primary care",
+      "flair": "Methodology",
+      "kind": "methodology",
+      "community": "Screening & systems",
+      "author": "Dr. Amira Khan",
+      "created": "2026-05-03T08:30:00",
+      "body": "Pilot n=220: nurse-delivered script + single narrative prompt; NLP risk score plus clinician override cut unnecessary referrals by ~18% vs PHQ-9 alone in our busy clinic. Happy to share protocol flaws — clustering bias was real.",
+      "link": "",
+      "link_title": "",
+      "replies": []
+    },
+    {
+      "id": "seed-amira-sc09",
+      "seed_score": 19,
+      "title": "Screening insight: adolescents denying SI but endorsing 'blank mind' — what's your follow-up ladder?",
+      "flair": "Screening / diagnosis",
+      "kind": "screening",
+      "community": "Adolescent forum",
+      "author": "Dr. Elena Rossi",
+      "created": "2026-05-02T13:45:00",
+      "body": "We're noticing emergent dissociative descriptors among teens who score low on explicit SI items. Not replacing structured safety assessment — looking for how teams escalate collateral without pathologizing normative alexithymia.",
+      "link": "",
+      "link_title": "",
+      "replies": []
+    },
+    {
+      "id": "seed-amira-t10",
+      "seed_score": 35,
+      "title": "Trial & error: what we retired after 6 months of 'daily mood emoji' check-ins",
+      "flair": "Trial & error",
+      "kind": "trial_error",
+      "community": "Implementation honesty",
+      "author": "Dr. Amira Khan",
+      "created": "2026-05-01T10:15:00",
+      "body": "Emoji granularity looked inclusive but clinicians couldn't compare trajectories across patients and patients fatigued faster than free text. Swapped to 3-tap + optional sentence; retention improved. What did you kill that sounded good in a deck?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-amira-t10-r1",
+          "author": "Dr. Samir Okafor",
+          "body": "Retired 'community kudos' points — gamified well in pilot, stigmatized in real community sites.",
+          "created": "2026-05-01T12:00:00",
+          "date_label": "May 01, 2026"
+        }
+      ]
+    }
+  ],
+  "li-wei": [
+    {
+      "id": "seed-liw-t01",
+      "title": "Are we underweighting travel disruption in mood forecasting?",
+      "flair": "Discussion",
+      "kind": "discussion",
+      "community": "Mood Systems Board",
+      "author": "Dr. Li Wei",
+      "created": "2026-05-10T13:20:00",
+      "body": "Our model flags sleep compression strongly but treats cross-time-zone travel as noise. Clinicians argue it should be a first-class feature — agree?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-liw-t01-r1",
+          "author": "Dr. Aarav (trainee)",
+          "body": "Adding a travel flag cut false negatives in the cyclothymia subgroup last month.",
+          "created": "2026-05-10T16:00:00",
+          "date_label": "May 10, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-liw-r02",
+      "title": "Digital phenotyping: rhythm irregularity alerts vs self-rated mood",
+      "flair": "Trend watch",
+      "kind": "trend",
+      "community": "Evidence Digest",
+      "author": "Dr. Li Wei",
+      "created": "2026-05-09T10:00:00",
+      "body": "Multi-site clinics shifting toward micro-interventions after rhythm irregularity alerts rather than waiting for mood scores to crash. Sharing implementation pitfalls we hit on alert fatigue.",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-liw-r02-r1",
+          "author": "Dr. Maya Patel",
+          "body": "We throttle to max 1 clinician-facing alert per day per patient unless SOS pathway triggers.",
+          "created": "2026-05-09T11:30:00",
+          "date_label": "May 09, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-liw-q03",
+      "title": "Case question: hypomanic signals with preserved functioning — when to intervene?",
+      "flair": "Case question",
+      "kind": "question",
+      "community": "Mood Systems Board",
+      "author": "Dr. Li Wei",
+      "created": "2026-05-06T14:15:00",
+      "body": "Patient reports goal-directed productivity with 3–4h sleep but still meeting work obligations. Cognition checks stable. Looking for consensus on sleep restoration-first vs earlier pharmacologic adjustment.",
+      "link": "",
+      "link_title": "",
+      "replies": []
+    }
+  ],
+  "elena-rossi": [
+    {
+      "id": "seed-elen-d01",
+      "title": "Family-mediated relapse prevention: what counts as “weekly participation”?",
+      "flair": "Discussion",
+      "kind": "discussion",
+      "community": "Family Systems Lab",
+      "author": "Dr. Elena Rossi",
+      "created": "2026-05-10T08:00:00",
+      "body": "Programs measure caregiver contacts differently — some count texts, others only synchronous sessions. Trying to standardize for our adolescent pilots.",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-elen-d01-r1",
+          "author": "Dr. Samir Okafor",
+          "body": "We weight synchronous higher but log asynchronous as adjunct — avoids gaming the metric.",
+          "created": "2026-05-10T09:30:00",
+          "date_label": "May 10, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-elen-r02",
+      "title": "Caregiver-engaged interventions outperform isolated follow-up — registry summary",
+      "flair": "Research share",
+      "kind": "research",
+      "community": "Evidence Digest",
+      "author": "Dr. Elena Rossi",
+      "created": "2026-05-07T12:00:00",
+      "body": "Registry across three cities shows earlier relapse detection when caregivers receive scripted prompts aligned with therapy goals — especially around meal and sleep routines.",
+      "link": "https://example.org/family-engagement-registry-2026",
+      "link_title": "Registry summary (public)",
+      "replies": []
+    },
+    {
+      "id": "seed-elen-x03",
+      "title": "Trend: spike in school-transition anxiety presentations this term",
+      "flair": "Trend watch",
+      "kind": "trend",
+      "community": "Adolescent Forum",
+      "author": "Dr. Elena Rossi",
+      "created": "2026-05-05T07:30:00",
+      "body": "Several peers seeing anticipatory somatic complaints clustered around exams + social comparison peaks. Sharing triage language that reduced unnecessary ER bounce-backs.",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-elen-x03-r1",
+          "author": "Dr. Maya Patel",
+          "body": "School liaison sheet with “when to escalate vs coach through” cut our urgent visits noticeably.",
+          "created": "2026-05-05T09:00:00",
+          "date_label": "May 05, 2026"
+        }
+      ]
+    }
+  ],
+  "samir-okafor": [
+    {
+      "id": "seed-sam-c01",
+      "title": "Community early-warning: phrasing pre-visit summaries as daily-life shifts",
+      "flair": "Discussion",
+      "kind": "discussion",
+      "community": "Community Psychiatry",
+      "author": "Dr. Samir Okafor",
+      "created": "2026-05-10T06:00:00",
+      "body": "Outreach teams saw higher engagement when summaries avoided symptom labels and focused on concrete routines (sleep window, meals, work shifts). Anyone else A/B testing language packs?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-sam-c01-r1",
+          "author": "Dr. Amira Khan",
+          "body": "Mirrors what we learned in trauma outreach — “story-first” summaries outperform checklist jargon.",
+          "created": "2026-05-10T07:12:00",
+          "date_label": "May 10, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-sam-r02",
+      "title": "Implementation study: first-episode outreach pathways across fragmented systems",
+      "flair": "Research share",
+      "kind": "research",
+      "community": "Evidence Digest",
+      "author": "Dr. Samir Okafor",
+      "created": "2026-05-08T15:45:00",
+      "body": "Preprint on handoff fidelity between community workers and specialty clinics — strongest predictor of continuity was shared escalation thresholds, not EMR integration depth.",
+      "link": "https://example.org/fep-handoff-preprint-2026",
+      "link_title": "Preprint: handoff fidelity in FEP outreach",
+      "replies": []
+    },
+    {
+      "id": "seed-sam-q03",
+      "title": "How do you document risk when patient refuses specialist bridge referral?",
+      "flair": "Case question",
+      "kind": "question",
+      "community": "Risk & Ethics",
+      "author": "Dr. Samir Okafor",
+      "created": "2026-05-06T11:00:00",
+      "body": "Seeking templates that balance autonomy with clear audit trail for community teams operating under resource constraints.",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-sam-q03-r1",
+          "author": "Dr. Li Wei",
+          "body": "We use time-stamped shared decision notes + explicit capacity assessment — legal reviewed.",
+          "created": "2026-05-06T13:00:00",
+          "date_label": "May 06, 2026"
+        }
+      ]
+    }
+  ],
+  "maya-patel": [
+    {
+      "id": "seed-may-e01",
+      "title": "Cognitive-load summaries in appointment packets — who actually reads them?",
+      "flair": "Discussion",
+      "kind": "discussion",
+      "community": "Neurodevelopment Forum",
+      "author": "Dr. Maya Patel",
+      "created": "2026-05-09T08:30:00",
+      "body": "Teams report better handoffs when one-page exec-function load scores ride alongside symptom scores. Pushback: prep time. Worth it in your clinics?",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-may-e01-r1",
+          "author": "Dr. Elena Rossi",
+          "body": "Parents engaged more when we tied load scores to specific homework examples.",
+          "created": "2026-05-09T10:15:00",
+          "date_label": "May 09, 2026"
+        }
+      ]
+    },
+    {
+      "id": "seed-may-r02",
+      "title": "Adult ADHD diagnostic refinement: executive testing vs real-world probes",
+      "flair": "Research share",
+      "kind": "research",
+      "community": "Evidence Digest",
+      "author": "Dr. Maya Patel",
+      "created": "2026-05-07T09:20:00",
+      "body": "Review argues combining structured cognitive probes with week-long routine sampling reduces false positives from anxiety-driven distraction.",
+      "link": "https://example.org/adhd-diagnostic-review-2026",
+      "link_title": "Review: diagnostics in adult ADHD",
+      "replies": []
+    },
+    {
+      "id": "seed-may-t03",
+      "title": "School transition season — executive demands spike earlier than parents expect",
+      "flair": "Trend watch",
+      "kind": "trend",
+      "community": "School Transition Watch",
+      "author": "Dr. Maya Patel",
+      "created": "2026-05-04T14:00:00",
+      "body": "Cluster of referrals for bright teens hitting wall when unstructured time collapses. Sharing a lightweight weekly planning scaffold.",
+      "link": "",
+      "link_title": "",
+      "replies": [
+        {
+          "id": "seed-may-t03-r1",
+          "author": "Dr. Samir Okafor",
+          "body": "Borrowed scaffold for community youth program — teachers appreciated the non-clinical language.",
+          "created": "2026-05-04T16:30:00",
+          "date_label": "May 04, 2026"
+        },
+        {
+          "id": "seed-may-t03-r2",
+          "author": "Dr. Maya Patel",
+          "body": "Uploaded v2 with explicit “energy accounting” line items — less shame than grades-only tracking.",
+          "created": "2026-05-05T08:00:00",
+          "date_label": "May 05, 2026"
+        }
+      ]
+    }
+  ],
+  "_default": [
+    {
+      "id": "seed-default-001",
+      "title": "Welcome to Doctor's Corner — how should we tag threads?",
+      "flair": "Discussion",
+      "kind": "discussion",
+      "community": "Doctor's Corner",
+      "author": "MindScape Faculty",
+      "created": "2026-05-01T10:00:00",
+      "body": "Use flairs to separate research shares, trend watches, case questions, and open discussion. Link titles help others evaluate sources quickly.",
+      "link": "",
+      "link_title": "",
+      "replies": []
+    }
+  ]
+}

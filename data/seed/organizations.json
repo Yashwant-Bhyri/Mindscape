@@ -1,0 +1,80 @@
+[
+  {
+    "id": "aurora-mind-institute",
+    "name": "Aurora Mind Institute",
+    "region": "Shenzhen + Singapore + Bengaluru",
+    "focus": "Precision psychiatry, trauma recovery, multilingual behavioral intelligence, and digital phenotyping.",
+    "signature_program": "Longitudinal resilience tracking for high-risk urban communities.",
+    "stats": {
+      "patients": "14.2k annual patient journeys",
+      "research": "82 active translational studies",
+      "response": "96% crisis-response SLA adherence"
+    },
+    "researchers": ["amira-khan", "li-wei", "elena-rossi", "wei-chen", "sophia-lin"]
+  },
+  {
+    "id": "north-star-neurohealth",
+    "name": "North Star Neurohealth Collective",
+    "region": "Boston + Nairobi + Shenzhen",
+    "focus": "Collaborative mood-disorder care, digital phenotyping, adolescent prevention, and community-based early intervention.",
+    "signature_program": "Cross-border clinician learning loops for fast-changing psychiatric patterns.",
+    "stats": {
+      "patients": "9.8k active care plans",
+      "research": "37 live outcome registries",
+      "response": "4.7/5 physician collaboration score"
+    },
+    "researchers": ["samir-okafor", "maya-patel", "kenji-tanaka", "fatima-alhassan"]
+  },
+  {
+    "id": "shenzhen-mental-health-network",
+    "name": "Shenzhen Mental Health Network",
+    "region": "Shenzhen + Hong Kong",
+    "focus": "Public sector psychiatry, psychosis early detection, and integrated care pathways.",
+    "signature_program": "District-level rapid response and stepped-care for severe mental illness.",
+    "stats": {
+      "patients": "28.4k registered patients",
+      "research": "19 implementation studies",
+      "response": "89% 72-hour follow-up completion"
+    },
+    "researchers": ["chen-wei", "liu-xia"]
+  },
+  {
+    "id": "harborview-psychiatric-center",
+    "name": "Harborview Psychiatric Center",
+    "region": "Boston + Cambridge",
+    "focus": "Academic psychiatry, neurodevelopmental disorders, and computational mood modeling.",
+    "signature_program": "Precision adolescent mood and anxiety program with wearable integration.",
+    "stats": {
+      "patients": "6.1k active youth and young adults",
+      "research": "45 NIH and foundation grants",
+      "response": "Top-quartile patient satisfaction"
+    },
+    "researchers": ["maya-patel", "james-kim"]
+  },
+  {
+    "id": "african-mental-health-initiative",
+    "name": "African Mental Health Initiative",
+    "region": "Nairobi + Kigali + Addis Ababa",
+    "focus": "Community mental health, task-shifting, and culturally adapted interventions.",
+    "signature_program": "Lay-provider training and digital decision-support for primary care.",
+    "stats": {
+      "patients": "31k patients reached via task-shifting model",
+      "research": "12 implementation trials",
+      "response": "82% retention at 6 months"
+    },
+    "researchers": ["samir-okafor", "fatima-alhassan", "grace-owusu"]
+  },
+  {
+    "id": "pacific-rim-trauma-institute",
+    "name": "Pacific Rim Trauma & Resilience Institute",
+    "region": "Singapore + Hong Kong + Sydney",
+    "focus": "Complex trauma, dissociative disorders, and refugee mental health.",
+    "signature_program": "Multilingual trauma recovery and voice-biomarker research program.",
+    "stats": {
+      "patients": "7.8k complex trauma cases",
+      "research": "29 active studies",
+      "response": "94% patient-reported outcome improvement"
+    },
+    "researchers": ["amira-khan", "elena-rossi", "sophia-lin"]
+  }
+]

@@ -1,0 +1,1692 @@
+[
+  {
+    "id": "amira-khan",
+    "name": "Dr. Amira Khan",
+    "title": "Consultant Psychiatrist & Director of Trauma Services",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Complex PTSD, Dissociative Disorders, Trauma Recovery",
+    "department": "Trauma & Dissociation Unit",
+    "panel_size": 186,
+    "research_interests": [
+      "Voice biomarkers in trauma",
+      "Longitudinal resilience tracking",
+      "Multilingual therapy outcomes"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Supervision + Teaching",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "triage_response": "18% faster than network average",
+      "followup_completion": "93%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 7,
+    "years_experience": 14
+  },
+  {
+    "id": "li-wei",
+    "name": "Dr. Li Wei",
+    "title": "Senior Research Psychiatrist, Computational Mood Lab",
+    "hospital_id": "north-star-shenzhen-outpost",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Mood Disorders, Digital Phenotyping, Bipolar Spectrum",
+    "department": "Computational Psychiatry Unit",
+    "panel_size": 141,
+    "research_interests": [
+      "Bipolar recurrence forecasting",
+      "Sleep as early-warning feature",
+      "Multimodal affect detection"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research + Clinic",
+      "Tuesday": "Full Research",
+      "Wednesday": "Clinic + Data Review",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Grants"
+    },
+    "performance": {
+      "prediction_precision": "78% top-tier triage agreement",
+      "protocol_adoption": "4 new clinics piloting model",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 4,
+    "years_experience": 11
+  },
+  {
+    "id": "elena-rossi",
+    "name": "Dr. Elena Rossi",
+    "title": "Clinical Psychologist & Recovery Design Lead",
+    "hospital_id": "pacific-rim-hong-kong-trauma-unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Complex Trauma, Eating Disorders, Family Systems",
+    "department": "Trauma Recovery Unit",
+    "panel_size": 96,
+    "research_interests": [
+      "Family-mediated treatment loops",
+      "Adolescent relapse prevention",
+      "Cross-cultural voice biomarkers"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Family Therapy",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research + Supervision",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching & Admin"
+    },
+    "performance": {
+      "family_engagement": "88% weekly participation",
+      "relapse_prevention": "Top-quartile outcomes",
+      "patient_satisfaction": "4.9/5"
+    },
+    "inbox_unread": 9,
+    "years_experience": 9
+  },
+  {
+    "id": "samir-okafor",
+    "name": "Dr. Samir Okafor",
+    "title": "Director of Community Psychiatry Innovation",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Community Psychiatry, Psychosis Early Detection, Task-Shifting",
+    "department": "Community Mental Health",
+    "panel_size": 208,
+    "research_interests": [
+      "Lay-provider training models",
+      "Digital decision-support in primary care",
+      "Culturally adapted interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Community Outreach",
+      "Tuesday": "Clinic + Training",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Research + Policy",
+      "Friday": "Supervision + Admin"
+    },
+    "performance": {
+      "community_reengagement": "64% after first missed contact",
+      "task_shifting_retention": "82% at 6 months",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 15
+  },
+  {
+    "id": "maya-patel",
+    "name": "Dr. Maya Patel",
+    "title": "Neuropsychiatry Research Fellow & Youth Program Lead",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "ADHD, ASD, Learning Disorders, Executive Function",
+    "department": "Neurodevelopmental & Youth Psychiatry",
+    "panel_size": 123,
+    "research_interests": [
+      "Executive function interventions",
+      "Adult ADHD diagnostic refinement",
+      "School transition support"
+    ],
+    "weekly_schedule": {
+      "Monday": "Assessment Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research + Teaching",
+      "Thursday": "Full Clinic",
+      "Friday": "Neuropsych Testing + Admin"
+    },
+    "performance": {
+      "assessment_turnaround": "31% faster than service baseline",
+      "school_transition_success": "Top-quartile",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 5,
+    "years_experience": 7
+  },
+  {
+    "id": "wei-chen",
+    "name": "Dr. Wei Chen",
+    "title": "Consultant Psychiatrist, Early Psychosis Program",
+    "hospital_id": "shenzhen-mental-health-center",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Early Psychosis, Schizophrenia Spectrum, At-Risk Mental States",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 172,
+    "research_interests": [
+      "Ultra-high risk detection",
+      "Digital phenotyping in psychosis",
+      "Family psychoeducation"
+    ],
+    "weekly_schedule": {
+      "Monday": "New Assessments",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Team Meeting + Admin"
+    },
+    "performance": {
+      "duration_of_untreated_psychosis_reduction": "42%",
+      "family_engagement": "79%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 8,
+    "years_experience": 12
+  },
+  {
+    "id": "sophia-lin",
+    "name": "Dr. Sophia Lin",
+    "title": "Consultant Psychiatrist, Mood & Anxiety Disorders",
+    "hospital_id": "aurora-bengaluru-center",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Treatment-Resistant Depression, Bipolar Spectrum, Anxiety Disorders",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 154,
+    "research_interests": [
+      "Treatment-resistant depression",
+      "Ketamine and esketamine outcomes",
+      "Voice biomarkers in depression"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Supervision",
+      "Thursday": "Full Clinic",
+      "Friday": "Research Day"
+    },
+    "performance": {
+      "trd_remission_rate": "38%",
+      "voice_biomarker_validation": "Ongoing",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 6,
+    "years_experience": 10
+  },
+  {
+    "id": "kenji-tanaka",
+    "name": "Dr. Kenji Tanaka",
+    "title": "Consultant Psychiatrist & Digital Therapeutics Lead",
+    "hospital_id": "north-star-boston-campus",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Digital Phenotyping, Mood Prediction, Wearable Integration",
+    "department": "Computational Psychiatry",
+    "panel_size": 98,
+    "research_interests": [
+      "Multimodal mood forecasting",
+      "Just-in-time adaptive interventions",
+      "Wearable validation"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research + Clinic",
+      "Tuesday": "Full Research",
+      "Wednesday": "Clinic + Data Review",
+      "Thursday": "Full Clinic",
+      "Friday": "Grants & Publications"
+    },
+    "performance": {
+      "mood_prediction_accuracy": "71% 7-day ahead",
+      "wearable_adherence": "68%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 3,
+    "years_experience": 8
+  },
+  {
+    "id": "fatima-alhassan",
+    "name": "Dr. Fatima Alhassan",
+    "title": "Consultant Psychiatrist, Community & Perinatal Mental Health",
+    "hospital_id": "african-mental-health-kigali",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Perinatal Mental Health, Community Psychiatry, Trauma",
+    "department": "Community & Perinatal Services",
+    "panel_size": 187,
+    "research_interests": [
+      "Perinatal depression interventions",
+      "Task-shifting in low-resource settings",
+      "Cultural adaptation of CBT"
+    ],
+    "weekly_schedule": {
+      "Monday": "Community Outreach",
+      "Tuesday": "Clinic + Training",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Research + Policy",
+      "Friday": "Supervision"
+    },
+    "performance": {
+      "perinatal_screening_rate": "92%",
+      "task_shifting_success": "Top-quartile retention",
+      "patient_satisfaction": "4.3/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 13
+  },
+  {
+    "id": "chen-wei",
+    "name": "Dr. Chen Wei",
+    "title": "Director of Community Mental Health Services",
+    "hospital_id": "shenzhen-luohu-community-mental-health",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Community Psychiatry, Anxiety & Depression, Geriatric Mental Health",
+    "department": "Community Mental Health",
+    "panel_size": 231,
+    "research_interests": [
+      "Stepped-care pathways",
+      "Primary care integration",
+      "Elderly depression"
+    ],
+    "weekly_schedule": {
+      "Monday": "Community Clinics",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Training & Supervision",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Policy"
+    },
+    "performance": {
+      "stepped_care_completion": "76%",
+      "elderly_depression_screening": "88%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 14,
+    "years_experience": 16
+  },
+  {
+    "id": "omar-nguyen",
+    "name": "Dr. Omar Nguyen",
+    "title": "Consultant Psychiatrist",
+    "hospital_id": "aurora-bengaluru-center",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 100,
+    "research_interests": [
+      "Wearable integration",
+      "Digital phenotyping",
+      "Task-shifting models"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "88%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 2,
+    "years_experience": 12
+  },
+  {
+    "id": "kenji-silva",
+    "name": "Dr. Kenji Silva",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "north-star-nairobi-youth-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 179,
+    "research_interests": [
+      "Task-shifting models",
+      "Voice biomarkers",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "90%",
+      "patient_satisfaction": "4.3/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 12
+  },
+  {
+    "id": "priya-al-mansouri",
+    "name": "Dr. Priya Al-Mansouri",
+    "title": "Clinical Psychologist",
+    "hospital_id": "aurora-bengaluru-center",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Trauma & PTSD",
+    "department": "Community Mental Health",
+    "panel_size": 219,
+    "research_interests": [
+      "Voice biomarkers",
+      "Early intervention",
+      "Task-shifting models"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "91%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 13,
+    "years_experience": 16
+  },
+  {
+    "id": "aarav-nguyen",
+    "name": "Dr. Aarav Nguyen",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Youth Mental Health",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 85,
+    "research_interests": [
+      "Digital phenotyping",
+      "Cross-cultural interventions",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "93%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 10,
+    "years_experience": 14
+  },
+  {
+    "id": "jia-nguyen",
+    "name": "Dr. Jia Nguyen",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Dissociative Disorders",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 183,
+    "research_interests": [
+      "Task-shifting models",
+      "Trauma recovery outcomes",
+      "Computational psychiatry"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "92%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 4,
+    "years_experience": 10
+  },
+  {
+    "id": "fatima-nguyen",
+    "name": "Dr. Fatima Nguyen",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Dissociative Disorders",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 166,
+    "research_interests": [
+      "Longitudinal mood modeling",
+      "Task-shifting models",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "90%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 15,
+    "years_experience": 20
+  },
+  {
+    "id": "jia-yamamoto",
+    "name": "Dr. Jia Yamamoto",
+    "title": "Consultant Psychiatrist",
+    "hospital_id": "pacific-rim-sydney-trauma",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Community & Perinatal",
+    "department": "Trauma Recovery",
+    "panel_size": 77,
+    "research_interests": [
+      "Longitudinal mood modeling",
+      "Wearable integration",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "94%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 16,
+    "years_experience": 7
+  },
+  {
+    "id": "aarav-zhang",
+    "name": "Dr. Aarav Zhang",
+    "title": "Clinical Psychologist",
+    "hospital_id": "aurora-bengaluru-community-outreach",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Neurodevelopmental (ADHD/ASD)",
+    "department": "Neurodevelopmental Clinic",
+    "panel_size": 133,
+    "research_interests": [
+      "Digital phenotyping",
+      "Task-shifting models",
+      "Trauma recovery outcomes"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "90%",
+      "patient_satisfaction": "4.9/5"
+    },
+    "inbox_unread": 7,
+    "years_experience": 22
+  },
+  {
+    "id": "omar-nguyen-1",
+    "name": "Dr. Omar Nguyen",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "aurora-bengaluru-community-outreach",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Trauma & PTSD",
+    "department": "Perinatal & Women's Mental Health",
+    "panel_size": 160,
+    "research_interests": [
+      "Wearable integration",
+      "Voice biomarkers",
+      "Task-shifting models"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "93%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 9
+  },
+  {
+    "id": "mei-zhang",
+    "name": "Dr. Mei Zhang",
+    "title": "Consultant Psychiatrist",
+    "hospital_id": "pacific-rim-hong-kong-trauma-unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Trauma Recovery",
+    "panel_size": 189,
+    "research_interests": [
+      "Wearable integration",
+      "Longitudinal mood modeling",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "90%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 15,
+    "years_experience": 7
+  },
+  {
+    "id": "min-okonkwo",
+    "name": "Dr. Min Okonkwo",
+    "title": "Clinical Psychologist",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Eating Disorders",
+    "department": "Perinatal & Women's Mental Health",
+    "panel_size": 236,
+    "research_interests": [
+      "Early intervention",
+      "Wearable integration",
+      "Voice biomarkers"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "82%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 9,
+    "years_experience": 17
+  },
+  {
+    "id": "aarav-nguyen-2",
+    "name": "Dr. Aarav Nguyen",
+    "title": "Clinical Psychologist",
+    "hospital_id": "pacific-rim-hong-kong-trauma-unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 73,
+    "research_interests": [
+      "Digital phenotyping",
+      "Trauma recovery outcomes",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "86%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 17,
+    "years_experience": 7
+  },
+  {
+    "id": "lucas-nguyen",
+    "name": "Dr. Lucas Nguyen",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "pacific-rim-hong-kong-trauma-unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Addiction Psychiatry",
+    "department": "Perinatal & Women's Mental Health",
+    "panel_size": 89,
+    "research_interests": [
+      "Computational psychiatry",
+      "Cross-cultural interventions",
+      "Trauma recovery outcomes"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "85%",
+      "patient_satisfaction": "4.2/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 8
+  },
+  {
+    "id": "min-yamamoto",
+    "name": "Dr. Min Yamamoto",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "aurora-bengaluru-center",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Trauma Recovery",
+    "panel_size": 173,
+    "research_interests": [
+      "Task-shifting models",
+      "Early intervention",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "83%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 2,
+    "years_experience": 9
+  },
+  {
+    "id": "lucas-yamamoto",
+    "name": "Dr. Lucas Yamamoto",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Trauma Recovery",
+    "panel_size": 119,
+    "research_interests": [
+      "Voice biomarkers",
+      "Longitudinal mood modeling",
+      "Trauma recovery outcomes"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "91%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 17,
+    "years_experience": 20
+  },
+  {
+    "id": "min-patel",
+    "name": "Dr. Min Patel",
+    "title": "Clinical Psychologist",
+    "hospital_id": "north-star-boston-campus",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 80,
+    "research_interests": [
+      "Voice biomarkers",
+      "Wearable integration",
+      "Task-shifting models"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "83%",
+      "patient_satisfaction": "4.9/5"
+    },
+    "inbox_unread": 4,
+    "years_experience": 22
+  },
+  {
+    "id": "priya-nguyen",
+    "name": "Dr. Priya Nguyen",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Trauma & PTSD",
+    "department": "Neurodevelopmental Clinic",
+    "panel_size": 95,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Voice biomarkers",
+      "Task-shifting models"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "92%",
+      "patient_satisfaction": "4.9/5"
+    },
+    "inbox_unread": 8,
+    "years_experience": 17
+  },
+  {
+    "id": "lucas-kim",
+    "name": "Dr. Lucas Kim",
+    "title": "Clinical Psychologist",
+    "hospital_id": "aurora-singapore-child-adolescent",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 182,
+    "research_interests": [
+      "Digital phenotyping",
+      "Voice biomarkers",
+      "Trauma recovery outcomes"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "88%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 6,
+    "years_experience": 14
+  },
+  {
+    "id": "fatima-okonkwo",
+    "name": "Dr. Fatima Okonkwo",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "north-star-shenzhen-outpost",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Trauma & PTSD",
+    "department": "Trauma Recovery",
+    "panel_size": 177,
+    "research_interests": [
+      "Task-shifting models",
+      "Voice biomarkers",
+      "Computational psychiatry"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "86%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 5,
+    "years_experience": 10
+  },
+  {
+    "id": "omar-nguyen-3",
+    "name": "Dr. Omar Nguyen",
+    "title": "Clinical Psychologist",
+    "hospital_id": "north-star-nairobi-youth-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Bipolar Spectrum",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 117,
+    "research_interests": [
+      "Wearable integration",
+      "Early intervention",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "90%",
+      "patient_satisfaction": "4.2/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 15
+  },
+  {
+    "id": "jia-yamamoto-4",
+    "name": "Dr. Jia Yamamoto",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "north-star-boston-campus",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Computational Psychiatry",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 174,
+    "research_interests": [
+      "Voice biomarkers",
+      "Digital phenotyping",
+      "Wearable integration"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "93%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 6,
+    "years_experience": 22
+  },
+  {
+    "id": "omar-al-mansouri",
+    "name": "Dr. Omar Al-Mansouri",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "harborview-mood-disorders-clinic",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Bipolar Spectrum",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 156,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Digital phenotyping",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "86%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 9,
+    "years_experience": 6
+  },
+  {
+    "id": "aarav-kim",
+    "name": "Dr. Aarav Kim",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Bipolar Spectrum",
+    "department": "Community Mental Health",
+    "panel_size": 170,
+    "research_interests": [
+      "Task-shifting models",
+      "Longitudinal mood modeling",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "97%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 16,
+    "years_experience": 15
+  },
+  {
+    "id": "min-nguyen",
+    "name": "Dr. Min Nguyen",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "north-star-shenzhen-outpost",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Neurodevelopmental (ADHD/ASD)",
+    "department": "Perinatal & Women's Mental Health",
+    "panel_size": 233,
+    "research_interests": [
+      "Cross-cultural interventions",
+      "Computational psychiatry",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "94%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 5
+  },
+  {
+    "id": "jia-okonkwo",
+    "name": "Dr. Jia Okonkwo",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "shenzhen-mental-health-center",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Trauma & PTSD",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 92,
+    "research_interests": [
+      "Cross-cultural interventions",
+      "Computational psychiatry",
+      "Early intervention"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "85%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 8,
+    "years_experience": 6
+  },
+  {
+    "id": "lucas-patel",
+    "name": "Dr. Lucas Patel",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "african-mental-health-kigali",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 202,
+    "research_interests": [
+      "Computational psychiatry",
+      "Cross-cultural interventions",
+      "Voice biomarkers"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "85%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 21
+  },
+  {
+    "id": "lucas-al-mansouri",
+    "name": "Dr. Lucas Al-Mansouri",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "aurora-bengaluru-community-outreach",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Neurodevelopmental (ADHD/ASD)",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 140,
+    "research_interests": [
+      "Longitudinal mood modeling",
+      "Trauma recovery outcomes",
+      "Early intervention"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "87%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 17
+  },
+  {
+    "id": "aarav-okonkwo",
+    "name": "Dr. Aarav Okonkwo",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "pacific-rim-sydney-trauma",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Eating Disorders",
+    "department": "Perinatal & Women's Mental Health",
+    "panel_size": 118,
+    "research_interests": [
+      "Computational psychiatry",
+      "Early intervention",
+      "Trauma recovery outcomes"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "97%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 7,
+    "years_experience": 14
+  },
+  {
+    "id": "mei-al-mansouri",
+    "name": "Dr. Mei Al-Mansouri",
+    "title": "Clinical Psychologist",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Neurodevelopmental (ADHD/ASD)",
+    "department": "Neurodevelopmental Clinic",
+    "panel_size": 125,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Wearable integration",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "84%",
+      "patient_satisfaction": "4.5/5"
+    },
+    "inbox_unread": 8,
+    "years_experience": 7
+  },
+  {
+    "id": "min-kim",
+    "name": "Dr. Min Kim",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "pacific-rim-sydney-trauma",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Addiction Psychiatry",
+    "department": "Community Mental Health",
+    "panel_size": 92,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Longitudinal mood modeling",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "89%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 5,
+    "years_experience": 5
+  },
+  {
+    "id": "sofia-al-mansouri",
+    "name": "Dr. Sofia Al-Mansouri",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "african-mental-health-addis",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Bipolar Spectrum",
+    "department": "Perinatal & Women's Mental Health",
+    "panel_size": 221,
+    "research_interests": [
+      "Cross-cultural interventions",
+      "Early intervention",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "89%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 10,
+    "years_experience": 19
+  },
+  {
+    "id": "min-okonkwo-5",
+    "name": "Dr. Min Okonkwo",
+    "title": "Clinical Psychologist",
+    "hospital_id": "aurora-bengaluru-community-outreach",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Addiction Psychiatry",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 84,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Task-shifting models",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "86%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 6,
+    "years_experience": 19
+  },
+  {
+    "id": "lucas-al-mansouri-6",
+    "name": "Dr. Lucas Al-Mansouri",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Trauma & PTSD",
+    "department": "Community Mental Health",
+    "panel_size": 184,
+    "research_interests": [
+      "Voice biomarkers",
+      "Trauma recovery outcomes",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "82%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 14,
+    "years_experience": 22
+  },
+  {
+    "id": "omar-silva",
+    "name": "Dr. Omar Silva",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "shenzhen-baoan-psychiatric-hospital",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 202,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Early intervention",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "94%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 14,
+    "years_experience": 18
+  },
+  {
+    "id": "mei-patel",
+    "name": "Dr. Mei Patel",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Addiction Psychiatry",
+    "department": "Trauma Recovery",
+    "panel_size": 216,
+    "research_interests": [
+      "Voice biomarkers",
+      "Digital phenotyping",
+      "Computational psychiatry"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "83%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 12,
+    "years_experience": 17
+  },
+  {
+    "id": "fatima-silva",
+    "name": "Dr. Fatima Silva",
+    "title": "Clinical Psychologist",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Addiction Psychiatry",
+    "department": "Early Intervention in Psychosis",
+    "panel_size": 172,
+    "research_interests": [
+      "Digital phenotyping",
+      "Early intervention",
+      "Voice biomarkers"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "89%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 3,
+    "years_experience": 13
+  },
+  {
+    "id": "aarav-kim-7",
+    "name": "Dr. Aarav Kim",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "shenzhen-mental-health-center",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Trauma Recovery",
+    "panel_size": 97,
+    "research_interests": [
+      "Digital phenotyping",
+      "Trauma recovery outcomes",
+      "Early intervention"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "85%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 7,
+    "years_experience": 12
+  },
+  {
+    "id": "aarav-okonkwo-8",
+    "name": "Dr. Aarav Okonkwo",
+    "title": "Senior Psychiatrist",
+    "hospital_id": "shenzhen-luohu-community-mental-health",
+    "organization_id": "shenzhen-mental-health-network",
+    "specialty": "Trauma & PTSD",
+    "department": "Neurodevelopmental Clinic",
+    "panel_size": 166,
+    "research_interests": [
+      "Digital phenotyping",
+      "Trauma recovery outcomes",
+      "Voice biomarkers"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Admin + Research",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "85%",
+      "patient_satisfaction": "4.8/5"
+    },
+    "inbox_unread": 3,
+    "years_experience": 17
+  },
+  {
+    "id": "fatima-zhang",
+    "name": "Dr. Fatima Zhang",
+    "title": "Clinical Psychologist",
+    "hospital_id": "north-star-shenzhen-outpost",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Eating Disorders",
+    "department": "Community Mental Health",
+    "panel_size": 230,
+    "research_interests": [
+      "Voice biomarkers",
+      "Cross-cultural interventions",
+      "Early intervention"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "96%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 15,
+    "years_experience": 21
+  },
+  {
+    "id": "omar-yamamoto",
+    "name": "Dr. Omar Yamamoto",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Youth Mental Health",
+    "department": "Neurodevelopmental Clinic",
+    "panel_size": 176,
+    "research_interests": [
+      "Task-shifting models",
+      "Computational psychiatry",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "89%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 14,
+    "years_experience": 19
+  },
+  {
+    "id": "fatima-kim",
+    "name": "Dr. Fatima Kim",
+    "title": "Clinical Psychologist",
+    "hospital_id": "aurora-singapore-child-adolescent",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Community Mental Health",
+    "panel_size": 119,
+    "research_interests": [
+      "Task-shifting models",
+      "Computational psychiatry",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Clinic + Teaching",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "82%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 8,
+    "years_experience": 20
+  },
+  {
+    "id": "lucas-yamamoto-9",
+    "name": "Dr. Lucas Yamamoto",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 126,
+    "research_interests": [
+      "Early intervention",
+      "Wearable integration",
+      "Cross-cultural interventions"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "94%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 22
+  },
+  {
+    "id": "kenji-al-mansouri",
+    "name": "Dr. Kenji Al-Mansouri",
+    "title": "Clinical Psychologist",
+    "hospital_id": "north-star-shenzhen-outpost",
+    "organization_id": "north-star-neurohealth",
+    "specialty": "Addiction Psychiatry",
+    "department": "Neurodevelopmental Clinic",
+    "panel_size": 205,
+    "research_interests": [
+      "Computational psychiatry",
+      "Early intervention",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "88%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 7,
+    "years_experience": 18
+  },
+  {
+    "id": "sofia-okonkwo",
+    "name": "Dr. Sofia Okonkwo",
+    "title": "Clinical Psychologist",
+    "hospital_id": "harborview-adolescent-center",
+    "organization_id": "harborview-psychiatric-center",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Computational Psychiatry Lab",
+    "panel_size": 217,
+    "research_interests": [
+      "Digital phenotyping",
+      "Trauma recovery outcomes",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "82%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 6,
+    "years_experience": 21
+  },
+  {
+    "id": "kenji-okonkwo",
+    "name": "Dr. Kenji Okonkwo",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "african-mental-health-kigali",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Anxiety & Mood Disorders",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 228,
+    "research_interests": [
+      "Digital phenotyping",
+      "Voice biomarkers",
+      "Task-shifting models"
+    ],
+    "weekly_schedule": {
+      "Monday": "Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Clinic"
+    },
+    "performance": {
+      "followup_completion": "92%",
+      "patient_satisfaction": "4.3/5"
+    },
+    "inbox_unread": 3,
+    "years_experience": 9
+  },
+  {
+    "id": "priya-silva",
+    "name": "Dr. Priya Silva",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "african-mental-health-kigali",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Addiction Psychiatry",
+    "department": "Mood & Anxiety Unit",
+    "panel_size": 83,
+    "research_interests": [
+      "Voice biomarkers",
+      "Longitudinal mood modeling",
+      "Digital phenotyping"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Supervision",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "85%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 15,
+    "years_experience": 20
+  },
+  {
+    "id": "sofia-yamamoto",
+    "name": "Dr. Sofia Yamamoto",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "pacific-rim-hong-kong-trauma-unit",
+    "organization_id": "pacific-rim-trauma-institute",
+    "specialty": "Eating Disorders",
+    "department": "Community Mental Health",
+    "panel_size": 215,
+    "research_interests": [
+      "Task-shifting models",
+      "Voice biomarkers",
+      "Wearable integration"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "88%",
+      "patient_satisfaction": "4.4/5"
+    },
+    "inbox_unread": 4,
+    "years_experience": 14
+  },
+  {
+    "id": "kenji-zhang",
+    "name": "Dr. Kenji Zhang",
+    "title": "Consultant & Research Lead",
+    "hospital_id": "north-star-nairobi-hub",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Psychosis & Early Intervention",
+    "department": "Trauma Recovery",
+    "panel_size": 65,
+    "research_interests": [
+      "Early intervention",
+      "Wearable integration",
+      "Longitudinal mood modeling"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "91%",
+      "patient_satisfaction": "4.7/5"
+    },
+    "inbox_unread": 16,
+    "years_experience": 10
+  },
+  {
+    "id": "omar-nguyen-10",
+    "name": "Dr. Omar Nguyen",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "aurora-singapore-trauma-clinic",
+    "organization_id": "aurora-mind-institute",
+    "specialty": "Computational Psychiatry",
+    "department": "Trauma Recovery",
+    "panel_size": 94,
+    "research_interests": [
+      "Trauma recovery outcomes",
+      "Longitudinal mood modeling",
+      "Early intervention"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Research Day",
+      "Thursday": "Full Clinic",
+      "Friday": "Research & Admin"
+    },
+    "performance": {
+      "followup_completion": "91%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 11,
+    "years_experience": 18
+  },
+  {
+    "id": "omar-silva-11",
+    "name": "Dr. Omar Silva",
+    "title": "Associate Professor of Psychiatry",
+    "hospital_id": "african-mental-health-addis",
+    "organization_id": "african-mental-health-initiative",
+    "specialty": "Trauma & PTSD",
+    "department": "Community Mental Health",
+    "panel_size": 193,
+    "research_interests": [
+      "Early intervention",
+      "Wearable integration",
+      "Voice biomarkers"
+    ],
+    "weekly_schedule": {
+      "Monday": "Clinic + Research",
+      "Tuesday": "Full Clinic",
+      "Wednesday": "Full Clinic",
+      "Thursday": "Full Clinic",
+      "Friday": "Teaching"
+    },
+    "performance": {
+      "followup_completion": "92%",
+      "patient_satisfaction": "4.6/5"
+    },
+    "inbox_unread": 2,
+    "years_experience": 13
+  }
+]

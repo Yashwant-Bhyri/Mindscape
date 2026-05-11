@@ -1,0 +1,6 @@
+{
+  "title": "Schizophrenia - BSV and Vocal Features",
+  "condition": "Schizophrenia",
+  "source": "Clinical + Acoustic Studies",
+  "content": "DOCUMENT TYPE: BSV / Vocal\n\nBSV / VOCAL SIGNALS: Disorganized speech produces high Arousal with erratic pitch, rate, and volume. Negative symptoms: Low Arousal, low Valence, low Dominance (flat affect, alogia, avolition). Voice often monotone, soft, with long pauses, reduced pitch range, and impoverished prosody. Delusional content may produce sudden high-arousal spikes when discussing fixed false beliefs.\n\nPATIENT-LANGUAGE EXAMPLES: \"The voices tell me things no one else hears\", \"I feel nothing most days\", \"My thoughts get jumbled when I try to explain\".\n\nCOUNTER-SIGNALS / NEGATIONS: Normal fluent prosody, consistent affect, no reports of hallucinations or fixed delusions.\n\nPROVENANCE: Clinical observation and computational linguistics research on thought disorder and negative symptoms."
+}
